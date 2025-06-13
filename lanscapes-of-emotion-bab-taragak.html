@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Emosi "Taragak" dalam Temuan Heider</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F5F5DC; color: #333333; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        .nav-link { 
+            cursor: pointer; 
+            padding: 8px 16px; 
+            margin-bottom: 8px; /* Menambahkan jarak antar poin navigasi */
+            border-radius: 8px; 
+            transition: background-color 0.3s; 
+            text-align: left; /* Membuat teks rata kiri */
+            display: block; /* Memastikan setiap link mengambil lebar penuh untuk rata kiri */
+        }
+        .nav-link:hover, .nav-link.active-nav { background-color: #D2B48C; color: #FFFFFF; } /* Coklat muda untuk hover/aktif */
+        .card { background-color: #FFFFFF; padding: 24px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); margin-bottom: 16px;}
+        .tooltip-interactive { position: relative; display: inline-block; border-bottom: 1px dotted #333333; cursor: pointer; color: #4A90E2; }
+        .tooltip-interactive .tooltiptext { visibility: hidden; width: 220px; background-color: #333333; color: #FFFFFF; text-align: center; border-radius: 6px; padding: 8px; position: absolute; z-index: 1; bottom: 125%; left: 50%; margin-left: -110px; opacity: 0; transition: opacity 0.3s; font-size: 0.875rem; }
+        .tooltip-interactive:hover .tooltiptext { visibility: visible; opacity: 1; }
+        h1, h2, h3, h4 { color: #2F4F4F; } /* Abu-abu gelap kebiruan untuk judul */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F5F5DC; }
+        ::-webkit-scrollbar-thumb { background: #8FBC8F; border-radius: 4px; } /* Hijau laut redam untuk scrollbar thumb */
+        ::-webkit-scrollbar-thumb:hover { background: #709a70; }
+        .list-circle { list-style-type: circle; }
+        .footer { 
+            margin-top: 40px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ccc; 
+            text-align: center; 
+            color: #777; 
+            font-size: 0.9em; 
+        }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen">
+
+    <aside class="w-full md:w-64 bg-[#E6D8C0] p-6 shadow-lg md:sticky md:top-0 md:h-screen overflow-y-auto">
+        <h1 class="text-2xl font-bold mb-6 text-center">Navigasi "Taragak"</h1>
+        <nav>
+            <ul>
+                <li><a class="nav-link active-nav" data-section-id="intro-taragak" onclick="showSection('intro-taragak', event)">Pengantar "Taragak"</a></li>
+                <li><a class="nav-link" data-section-id="prototipikalitas-tinggi" onclick="showSection('prototipikalitas-tinggi', event)">Prototipikalitas Tinggi</a></li>
+                <li><a class="nav-link" data-section-id="skenario-emosi-taragak" onclick="showSection('skenario-emosi-taragak', event)">Skenario Emosi</a></li>
+                <li><a class="nav-link" data-section-id="konteks-budaya-merantau" onclick="showSection('konteks-budaya-merantau', event)">Konteks Budaya Minangkabau</a></li>
+                <li><a class="nav-link" data-section-id="kerinduan-budaya-populer" onclick="showSection('kerinduan-budaya-populer', event)">Dalam Budaya Populer</a></li>
+                <li><a class="nav-link" data-section-id="implikasi-luas-taragak" onclick="showSection('implikasi-luas-taragak', event)">Implikasi yang Lebih Luas</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+        <section id="intro-taragak" class="content-section active">
+            <div class="card mb-6">
+                <h2 class="text-3xl font-bold mb-4">Temuan Utama <em>Landscapes of Emotion</em>: "Taragak" sebagai Emosi Khas Minangkabau</h2>
+                <p class="mb-4 text-lg">Salah satu temuan yang Heider sendiri akui cukup mengejutkan namun sangat signifikan adalah **sangat menonjolnya emosi kerinduan (*rindu/kangen*) dalam ranah emosi Minangkabau dan Indonesia**. Emosi ini bahkan mencapai peringkat prototipikalitas tertinggi dalam penelitian Heider, menjadikannya sebuah *hallmark* atau ciri khas dari budaya Minangkabau.</p>
+                <p class="mb-4 text-lg">Meskipun Heider dalam analisis inti bukunya lebih sering merujuk pada *rindu* dan *kangen*, sebagai penutur asli Minangkabau, dapat dipastikan bahwa konsep mendalam tentang kerinduan ini sangat erat dengan kata **"taragak"** dalam bahasa Minangkabau. Heider sendiri menyinggung kata *taragak* ini dalam konteks area "Desire" yang juga terkait dengan emosi.</p>
+            </div>
+        </section>
+
+        <section id="prototipikalitas-tinggi" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Prototipikalitas Sangat Tinggi: Puncak Emosionalitas</h2>
+                <p class="mb-4 text-lg">Heider menemukan bahwa *rindu* dan *kangen* adalah dua dari hanya tiga kata dalam daftar Bahasa Indonesia yang memiliki **prototipikalitas 100% sebagai emosi**. Artinya, semua informan setuju bahwa kata-kata ini pasti adalah kata emosi. Ini menempatkan gugusan "Longing" (kerinduan) sebagai salah satu area emosi paling sentral dan paling kuat di Indonesia, khususnya Minangkabau.</p>
+                <p class="mb-4 text-lg">Kontras ini menonjol dibandingkan dengan bahasa Inggris Amerika, di mana emosi yang paling menonjol lebih tersebar (misalnya cinta, kemarahan, kebencian, depresi, ketakutan, kebahagiaan, kecemburuan). Dalam lanskap emosi Minangkabau, kerinduan mendominasi puncaknya.</p>
+            </div>
+        </section>
+
+        <section id="skenario-emosi-taragak" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Skenario Emosi: Akibat Ketiadaan dan Jarak</h2>
+                <p class="mb-4 text-lg">Skenario yang muncul dari penelitian Heider menunjukkan bahwa baik *rindu* maupun *kangen* secara khas merupakan **akibat dari ketiadaan, ketidakhadiran, atau jarak dari orang lain**.</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Meskipun anteseden *kangen* sering kali melibatkan tempat daripada orang, dalam penggunaan populer, *rindu* juga pasti mengacu pada nostalgia akan tempat maupun orang.</li>
+                    <li>Hasil dari emosi ini jarang melibatkan emosi lain, melainkan berupa **tindakan untuk mengakhiri perpisahan** (misalnya, kembali pulang) atau untuk **memperbaiki situasi** (misalnya, dengan menulis surat). Ini menunjukkan *rindu* sebagai emosi yang memotivasi tindakan, bukan hanya keadaan batin pasif.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="konteks-budaya-merantau" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Konteks Budaya Minangkabau: Tradisi Merantau</h2>
+                <p class="mb-4 text-lg">Heider secara eksplisit menghubungkan salience (*menonjolnya*) emosi *rindu* ini dengan **tradisi *merantau* yang merupakan ciri khas budaya Minangkabau**.</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Orang Minangkabau terkenal di antara semua suku bangsa di Indonesia karena pola migrasi keluar yang bersifat tidak permanen ini.</li>
+                    <li>Mayoritas pria Minangkabau, dan kini semakin banyak wanita, menghabiskan beberapa tahun di luar Sumatera Barat untuk belajar atau mencari nafkah.</li>
+                    <li>Meskipun *merantau* sangat dihargai dan didorong, ia selalu disertai dengan perasaan *rindu* yang mendalam terhadap orang-orang dan tempat-tempat yang jauh di kampung halaman. Yang menarik, *rindu* sama menonjolnya bagi orang Minangkabau yang tetap tinggal di kampung halaman maupun bagi mereka yang merantau.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="kerinduan-budaya-populer" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Kerinduan dalam Budaya Populer dan Contoh Etnografi</h2>
+                <p class="mb-4 text-lg">*Rindu* adalah kata yang umum dalam lagu-lagu populer Indonesia , dan rasa rindu nostalgia akan orang tua dan desa asal merupakan elemen kuat dalam sastra Minangkabau maupun Indonesia.</p>
+                <p class="mb-4 text-lg">Heider memberikan contoh kuat melalui kutipan syair *doggerel* (puisi/pantun sederhana) yang tertulis pada kain batik di Bukittinggi:</p>
+                <blockquote class="border-l-4 border-gray-400 pl-4 italic mb-4">
+                    Pesan dan seruan dari kampung<br>
+                    dagang di rantau lakehlah pulang<br>
+                    sudah tinggi rumput di halaman<br>
+                    
+                </blockquote>
+                <p class="mb-4 text-lg">Ini adalah esensi dari *rindu*, meskipun kata *rindu* itu sendiri tidak digunakan. Ini menunjukkan **sifat tidak langsung (*indirectness*) Minangkabau** dalam mengungkapkan emosi, menggunakan citra kiasan seperti halaman rumah yang ditumbuhi rumput tinggi untuk melambangkan nostalgia.</p>
+                <p class="mb-4 text-lg">Heider juga mencatat adanya kata Polandia, *tesknota*, dengan makna serupa, yang menurut Wierzbicka adalah "cerminan sejarah Polandia dan kekhawatiran nasional yang dominan". Ini mendukung gagasan bahwa emosi spesifik bisa sangat terkait dengan pengalaman budaya kolektif.</p>
+            </div>
+        </section>
+
+        <section id="implikasi-luas-taragak" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Implikasi yang Lebih Luas dari Emosi "Taragak"</h2>
+                <p class="mb-4 text-lg">Temuan tentang *rindu/kangen* (dan implikasinya ke *taragak*) ini adalah contoh sempurna mengapa pemahaman leksikal emosi tidak bisa terlepas dari konteks budaya yang lebih luas:</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li><strong>Melampaui Terjemahan Kamus:</strong> Meskipun kamus mungkin menerjemahkan *rindu* sebagai "longing" atau "nostalgia", peringkat prototipikalitas dan skenario yang dikumpulkan Heider menunjukkan kedalaman, sentralitas, dan fungsi emosi ini yang jauh melampaui padanan leksikal sederhana. Ini adalah bukti kuat bahwa untuk "menyelami relung emosi dan pikiran seseorang", kita tidak bisa hanya mengandalkan terjemahan, tetapi harus memahami "lanskap" budaya di mana emosi itu berada.</li>
+                    <li><strong>Emosi sebagai Cerminan Nilai Budaya:</strong> Salience *rindu* di Minangkabau tidak hanya menunjukkan frekuensi perasaan tersebut, tetapi juga bagaimana perasaan itu terjalin erat dengan nilai-nilai budaya seperti kekeluargaan, keterikatan pada kampung halaman, dan pengalaman migrasi yang membentuk identitas Minangkabau. Ini menegaskan bahwa emosi adalah cerminan dari "preokupasi nasional" atau budaya.</li>
+                    <li><strong>Bukti Pengaruh Budaya yang Kuat:</strong> Ini adalah salah satu bukti paling jelas dalam penelitian Heider yang mendukung hipotesis bahwa pola emosi spesifik budaya itu ada dan signifikan, bukan hanya "epifenomena etnografi" seperti yang diklaim oleh beberapa universalis.</li>
+                    <li><strong>"Taragak" di Konteks Heider:</strong> Meskipun Heider secara spesifik membahas *rindu* dan *kangen* sebagai kata kunci untuk kerinduan yang sangat prototipikal, dan hanya menyebut *taragak* dalam kaitannya dengan area "Desire" (gugusan yang terletak antara "Love" dan "Happy" dan berkisar dari "Lust" hingga "Like"), sangat mungkin bahwa *taragak* adalah padanan emosional yang lebih otentik bagi penutur asli Minangkabau untuk konsep kerinduan ini. Ini memperkuat argumen Heider bahwa terjemahan kamus seringkali tidak memadai dan bahwa "tidak ada kata di satu bahasa yang sepenuhnya setara dengan kata di bahasa lain".</li>
+                </ul>
+                <p class="mb-4 text-lg">Dengan demikian, kerinduan (*rindu/kangen*, dan dalam konteks Minangkabau, *taragak*) adalah *master text* emosional di Minangkabau, yang tidak hanya kaya secara leksikal, tetapi juga sangat kaya secara budaya, mencerminkan identitas dan pengalaman kolektif masyarakatnya.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            @2025 Komunitas Titian Akal Budi Yogyakarta (Inyiak Ridwan Muzir)
+        </footer>
+    </main>
+
+    <script>
+        function showSection(sectionId, event) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) { 
+                targetSection.classList.add('active');
+            } else {
+                console.error(`Section with ID '${sectionId}' not found.`);
+                return; 
+            }
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active-nav');
+            });
+
+            const navLinkToActivate = document.querySelector(`.nav-link[data-section-id="${sectionId}"]`);
+            if (navLinkToActivate) { 
+                navLinkToActivate.classList.add('active-nav');
+            } else {
+                console.error(`Navigation link for section '${sectionId}' not found.`);
+            }
+
+            if (event && event.currentTarget) {
+                window.location.hash = sectionId; 
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            const sections = [
+                'intro-taragak', 'prototipikalitas-tinggi', 'skenario-emosi-taragak', 
+                'konteks-budaya-merantau', 'kerinduan-budaya-populer', 'implikasi-luas-taragak'
+            ];
+            
+            let initialSectionId = 'intro-taragak'; 
+            if (hash && sections.includes(hash)) {
+                initialSectionId = hash;
+            }
+            
+            showSection(initialSectionId, null); 
+        });
+    </script>
+</body>
+</html>

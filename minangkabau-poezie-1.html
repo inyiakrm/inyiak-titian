@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Tulisan Poezie Minangkabau</title>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            width: 95%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+        .controls {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #357ABD;
+        }
+        
+        /* Tree Diagram Styles */
+        .tree {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .tree ul {
+            list-style-type: none;
+            padding-left: 0; 
+            margin: 0;
+        }
+        .tree li {
+            position: relative;
+            margin: 10px 0;
+        }
+        /* Garis vertikal dan horizontal untuk konektor tree */
+        .tree li:before {
+            content: "";
+            position: absolute;
+            left: -15px;
+            top: 15px; 
+            width: 15px;
+            height: 1px;
+            background-color: #ccc;
+        }
+        .tree li:after {
+            content: "";
+            position: absolute;
+            left: -15px;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background-color: #ccc;
+        }
+        .tree li:last-child:after {
+            height: 15px;
+        }
+
+        .tree .node {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .tree .node:hover {
+            background-color: #f0f4f8;
+        }
+        .tree .node-main {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .tree .node-root {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #4a90e2;
+            background-color: #f0f4f8;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .tree .toggle {
+            margin-right: 10px;
+            color: #4a90e2;
+            font-weight: bold;
+            width: 20px;
+            text-align: center;
+            pointer-events: auto; 
+            flex-shrink: 0; 
+        }
+        
+        /* Gaya untuk konten yang di-toggle (kutipan dan children) */
+        .tree .expandable-content {
+            margin-left: 30px; 
+            border-left: 1px dashed #ddd; 
+            padding-left: 15px; 
+            padding-top: 5px; 
+        }
+        .tree .hidden {
+            display: none;
+        }
+
+        /* Gaya untuk kutipan */
+        .tree .node-quote {
+            font-style: italic;
+            color: #555;
+            margin: 10px 0 10px 0; /* Ubah margin-bottom jadi 10px agar ada spasi ke komentar kritis */
+            text-align: justify;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        /* Gaya baru untuk komentar kritis */
+        .tree .critical-comment {
+            color: #d9534f; /* Warna merah */
+            font-weight: 500; /* Sedikit lebih tebal */
+            margin: 0 0 15px 0; /* Margin atas 0, margin bawah 15px untuk spasi ke sub-node */
+            padding-left: 5px; /* Sedikit indentasi dari kutipan */
+            border-left: 2px solid #d9534f; /* Garis merah di kiri */
+            padding-left: 10px;
+            line-height: 1.5;
+            font-size: 0.9em;
+            text-align: justify;
+        }
+
+        /* Pastikan child UL tidak memiliki border-left atau padding-left tambahan */
+        .tree .children ul {
+            padding-left: 0; 
+            border-left: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>"Minangkabausche Poezie" (Seni Bicara Minangkabau) karya J.C. van Eerde: <br> Struktur dan Catatan Kritis</h1>
+        
+        <div class="controls">
+            <button id="expandAll">Serak'an</button>
+            <button id="collapseAll">Kamehi</button>
+        </div>
+        
+        <div class="tree" id="diagram">
+            </div>
+    </div>
+
+    <script>
+        // Data struktur diagram
+        const diagramData = {
+            name: "Struktur Tulisan J.C. van Eerde",
+            type: "root",
+            // Anda bisa menambahkan kutipan atau komentar kritis di root node juga jika diperlukan
+            // quote: "Ini adalah kutipan untuk node root.",
+            // criticalComment: "Ini adalah komentar kritis untuk node root."
+            children: [
+                {
+                    name: "Pendahuluan Umum tentang Minangkabau & Bahasa",
+                    // Contoh kutipan untuk node yang memiliki children
+                    // quote: "TEMPATKAN KUTIPAN UNTUK 'Pendahuluan Umum' DI SINI", 
+                    // criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Pendahuluan Umum' DI SINI",
+                    children: [
+                        { 
+                            name: "Pengenalan Minangkabau", 
+                            quote: "remained quite constant in their old institutions, even in the face of fierce attacks from persons and ideas that were either hostile to these institutions or did not fit within their framework.",
+                            criticalComment: "Pernyataan ini bersifat asumtif dan bias. Apa masalahnya sebuah masyarakat mencoba mempertahankan diri dari serangan orang dan gagasan?" 
+                        },
+                        { 
+                            name: "Tantangan terhadap Matriarkat",
+                            quote: "Whether these typical social conditions will ultimately be able to withstand such pressures is certainly highly doubtful, and the powerful influences of Mohammedanism and the increasing traffic and contact with other peoples, which have so greatly transformed the original indigenous conditions on other islands, will perhaps one day undermine and cause the collapse of the remarkable edifice of the matriarchate, which this people has preserved to this day with sharp outlines and pure lines.",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Tantangan terhadap Matriarkat' DI SINI"
+                        },
+                        { 
+                            name: "Pentingnya Bahasa & Tujuan Penulisan",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Pentingnya Bahasa & Tujuan Penulisan' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Pentingnya Bahasa & Tujuan Penulisan' DI SINI"
+                        }
+                    ]
+                },
+                {
+                    name: "Definisi & Konteks \"Poezie\" Minangkabau",
+                    quote: "TEMPATKAN KUTIPAN UNTUK 'Definisi & Konteks Poezie' DI SINI",
+                    criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Definisi & Konteks Poezie' DI SINI",
+                    children: [
+                        { 
+                            name: "Perbedaan \"Poezie\" dari Narasi Romantis",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Perbedaan Poezie' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Perbedaan Poezie' DI SINI"
+                        },
+                        { 
+                            name: "Fungsi & Ciri Khas \"Poezie\"",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Fungsi & Ciri Khas Poezie' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Fungsi & Ciri Khas Poezie' DI SINI"
+                        }
+                    ]
+                },
+                {
+                    name: "Deskripsi Peristiwa & Contoh \"Padato\"",
+                    quote: "TEMPATKAN KUTIPAN UNTUK 'Deskripsi Peristiwa & Contoh Padato' DI SINI",
+                    criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Deskripsi Peristiwa & Contoh Padato' DI SINI",
+                    children: [
+                        { 
+                            name: "Setting Acara Pesta",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Setting Acara Pesta' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Setting Acara Pesta' DI SINI"
+                        },
+                        { 
+                            name: "\"Padato\" dari Tuan Rumah",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Padato dari Tuan Rumah' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Padato dari Tuan Rumah' DI SINI"
+                        },
+                        { 
+                            name: "\"Padato\" dari Tamu",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Padato dari Tamu' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Padato dari Tamu' DI SINI"
+                        }
+                    ]
+                },
+                {
+                    name: "Contoh \"Padato\" Deskriptif & Analisis Estetika",
+                    quote: "TEMPATKAN KUTIPAN UNTUK 'Contoh Padato Deskriptif & Analisis Estetika' DI SINI",
+                    criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Contoh Padato Deskriptif & Analisis Estetika' DI SINI",
+                    children: [
+                        { 
+                            name: "Deskripsi Halaman Rumah",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Deskripsi Halaman Rumah' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Deskripsi Halaman Rumah' DI SINI"
+                        },
+                        { 
+                            name: "Deskripsi Rumah",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Deskripsi Rumah' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Deskripsi Rumah' DI SINI"
+                        }
+                    ]
+                },
+                {
+                    name: "\"Padato\" untuk Acara Khusus: Pernikahan & Analisis Ciri Khas",
+                    quote: "TEMPATKAN KUTIPAN UNTUK 'Padato untuk Acara Khusus' DI SINI",
+                    criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Padato untuk Acara Khusus' DI SINI",
+                    children: [
+                        { 
+                            name: "\"Padato\" Pernikahan",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Padato Pernikahan' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Padato Pernikahan' DI SINI"
+                        },
+                        { 
+                            name: "Deskripsi Pengantin Pria",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Deskripsi Pengantin Pria' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Deskripsi Pengantin Pria' DI SINI"
+                        },
+                        { 
+                            name: "Deskripsi Pengantin Wanita",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Deskripsi Pengantin Wanita' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Deskripsi Pengantin Wanita' DI SINI"
+                        }
+                    ]
+                },
+                {
+                    name: "Analisis Seni & Estetika \"Poezie\" Minangkabau",
+                    quote: "TEMPATKAN KUTIPAN UNTUK 'Analisis Seni & Estetika Poezie' DI SINI",
+                    criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Analisis Seni & Estetika Poezie' DI SINI",
+                    children: [
+                        { 
+                            name: "Kesenangan & Tantangan Pemahaman",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Kesenangan & Tantangan Pemahaman' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Kesenangan & Tantangan Pemahaman' DI SINI"
+                        },
+                        { 
+                            name: "Unsur Keindahan Suara & Rima",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Unsur Keindahan Suara & Rima' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Unsur Keindahan Suara & Rima' DI SINI"
+                        },
+                        { 
+                            name: "Keberadaan Sajak Bebas",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Keberadaan Sajak Bebas' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Keberadaan Sajak Bebas' DI SINI"
+                        },
+                        { 
+                            name: "Ciri Khas Seniman & Audiens",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Ciri Khas Seniman & Audiens' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Ciri Khas Seniman & Audiens' DI SINI"
+                        },
+                        { 
+                            name: "Konsep Keindahan Minangkabau",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Konsep Keindahan Minangkabau' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Konsep Keindahan Minangkabau' DI SINI"
+                        },
+                        { 
+                            name: "Karakteristik Seni Ukir & Benda",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Karakteristik Seni Ukir & Benda' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Karakteristik Seni Ukir & Benda' DI SINI"
+                        }
+                    ]
+                },
+                {
+                    name: "Kesimpulan",
+                    quote: "TEMPATKAN KUTIPAN UNTUK 'Kesimpulan' DI SINI",
+                    criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Kesimpulan' DI SINI",
+                    children: [
+                        { 
+                            name: "Kontribusi \"Padato\"",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Kontribusi Padato' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Kontribusi Padato' DI SINI"
+                        },
+                        { 
+                            name: "Apresiasi & Penutup",
+                            quote: "TEMPATKAN KUTIPAN UNTUK 'Apresiasi & Penutup' DI SINI",
+                            criticalComment: "TEMPATKAN KOMENTAR KRITIS UNTUK 'Apresiasi & Penutup' DI SINI"
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Fungsi untuk membuat elemen tree node
+        function createTreeNode(nodeData, parentElement) {
+            const li = document.createElement("li");
+            const nodeDiv = document.createElement("div");
+            nodeDiv.className = `node ${nodeData.type === "root" ? "node-root" : "node-main"}`;
+            
+            // Container untuk konten yang bisa di-toggle (kutipan, komentar kritis, dan children)
+            const expandableContent = document.createElement("div");
+            expandableContent.className = "expandable-content hidden"; // Awalnya sembunyikan
+
+            // 1. Tambahkan tombol toggle jika node memiliki children, quote, ATAU criticalComment
+            if ((nodeData.children && nodeData.children.length > 0) || nodeData.quote || nodeData.criticalComment) {
+                const toggle = document.createElement("span");
+                toggle.className = "toggle";
+                toggle.textContent = "+";
+                toggle.addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    toggleNode(this);
+                });
+                nodeDiv.appendChild(toggle);
+            }
+            
+            // 2. Tambahkan teks node (nama)
+            const nodeText = document.createElement("span");
+            nodeText.textContent = nodeData.name;
+            nodeDiv.appendChild(nodeText);
+            
+            // Event listener untuk nodeDiv (untuk klik pada teks node)
+            nodeDiv.addEventListener("click", function(e) {
+                // Toggle node jika mengklik nodeDiv itu sendiri (bukan tombol toggle)
+                // dan jika node ini memiliki konten yang bisa di-toggle (children, quote, atau criticalComment)
+                if ((nodeData.children && nodeData.children.length > 0) || nodeData.quote || nodeData.criticalComment) {
+                    const toggle = this.querySelector(".toggle");
+                    if (toggle && e.target !== toggle) { 
+                        toggleNode(toggle);
+                    }
+                }
+            });
+            
+            li.appendChild(nodeDiv); // Tambahkan nodeDiv ke li
+
+            // 3. Tambahkan kutipan jika ada
+            if (nodeData.quote) {
+                const quoteParagraph = document.createElement("p");
+                quoteParagraph.className = "node-quote"; 
+                quoteParagraph.textContent = nodeData.quote;
+                expandableContent.appendChild(quoteParagraph); 
+            }
+
+            // 4. Tambahkan komentar kritis jika ada
+            if (nodeData.criticalComment) {
+                const commentParagraph = document.createElement("p");
+                commentParagraph.className = "critical-comment"; 
+                commentParagraph.textContent = nodeData.criticalComment;
+                expandableContent.appendChild(commentParagraph); 
+            }
+
+            // 5. Tambahkan children jika ada
+            if (nodeData.children && nodeData.children.length > 0) {
+                const childrenUl = document.createElement("ul");
+                childrenUl.className = "children"; 
+                
+                nodeData.children.forEach(child => {
+                    createTreeNode(child, childrenUl);
+                });
+                
+                expandableContent.appendChild(childrenUl); 
+            }
+
+            // Hanya tambahkan expandableContent ke li jika ada quote ATAU criticalComment ATAU children
+            if ((nodeData.children && nodeData.children.length > 0) || nodeData.quote || nodeData.criticalComment) {
+                li.appendChild(expandableContent); 
+            }
+            
+            parentElement.appendChild(li);
+        }
+
+        // Fungsi untuk toggle node individual
+        function toggleNode(toggleElement) {
+            const expandableContent = toggleElement.parentElement.nextElementSibling; 
+
+            if (expandableContent && expandableContent.classList.contains("expandable-content")) {
+                if (expandableContent.classList.contains("hidden")) {
+                    expandableContent.classList.remove("hidden");
+                    toggleElement.textContent = "-";
+                } else {
+                    expandableContent.classList.add("hidden");
+                    toggleElement.textContent = "+";
+                }
+            }
+        }
+
+        // Fungsi untuk expand all nodes
+        function expandAllNodes() {
+            document.querySelectorAll(".expandable-content").forEach(content => {
+                content.classList.remove("hidden");
+            });
+            document.querySelectorAll(".toggle").forEach(toggle => {
+                toggle.textContent = "-";
+            });
+        }
+
+        // Fungsi untuk collapse all nodes
+        function collapseAllNodes() {
+            document.querySelectorAll(".expandable-content").forEach(content => {
+                content.classList.add("hidden");
+            });
+            document.querySelectorAll(".toggle").forEach(toggle => {
+                toggle.textContent = "+";
+            });
+        }
+
+        // Inisialisasi diagram
+        function initDiagram() {
+            const diagramContainer = document.getElementById("diagram");
+            const ul = document.createElement("ul");
+            createTreeNode(diagramData, ul);
+            diagramContainer.appendChild(ul);
+            
+            // Set awal ke collapsed state
+            collapseAllNodes();
+        }
+
+        // Event listeners untuk tombol
+        document.getElementById("expandAll").addEventListener("click", expandAllNodes);
+        document.getElementById("collapseAll").addEventListener("click", collapseAllNodes);
+
+        // Jalankan saat halaman dimuat
+        window.addEventListener("DOMContentLoaded", initDiagram);
+    </script>
+</body>
+</html>

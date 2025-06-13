@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biografi Karl G. Heider</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Definisi Warna Baru Berdasarkan Logo Komunitas Titian */
+            --color-primary-brown: #6F4E37; /* Cokelat Gelap dari Logo */
+            --color-dark-text: #333333;   /* Hitam/Abu-abu Sangat Gelap untuk Teks Utama */
+            --color-light-background: #FDFDFD; /* Hampir Putih, Sedikit Lebih Hangat */
+            --color-medium-gray: #757575; /* Abu-abu Sedang untuk Teks Sekunder */
+            --color-accent-border-light: #A37B5C; /* Cokelat Lebih Terang untuk Aksen */
+            --color-accent-border-dark: #5A3F2F; /* Cokelat Lebih Gelap untuk Aksen Lain */
+            --color-quote-background: #FFFBF5; /* Cream Sangat Pucat untuk Kotak Kutipan */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-light-background);
+            color: var(--color-dark-text);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: var(--color-primary-brown);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: var(--color-medium-gray);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 250px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: var(--color-primary-brown);
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            padding-right: 30px;
+        }
+
+        section h2::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--color-medium-gray);
+            transition: transform 0.3s ease;
+        }
+
+        section h2.expanded::after {
+            content: '-';
+        }
+
+        .content-hidden {
+            display: none;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            border-left: 4px solid var(--color-accent-border-light);
+            border-radius: 4px;
+        }
+
+        ul li strong {
+            color: var(--color-primary-brown);
+        }
+
+        .works-list li {
+            border-left: 4px solid var(--color-accent-border-dark);
+        }
+
+        .quote-box {
+            background-color: var(--color-quote-background);
+            border-left: 5px solid var(--color-primary-brown);
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: var(--color-dark-text);
+            border-radius: 5px;
+        }
+
+        .quote-box p {
+            margin-bottom: 10px;
+        }
+
+        .quote-box .citation {
+            text-align: right;
+            font-size: 0.9em;
+            color: var(--color-medium-gray);
+            font-style: normal;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: var(--color-medium-gray);
+            /* Tambahan untuk menyusun logo dan teks secara horizontal */
+            display: flex;
+            justify-content: center; /* Pusatkan secara horizontal */
+            align-items: center; /* Sejajarkan vertikal */
+            gap: 10px; /* Jarak antara logo dan teks */
+            flex-wrap: wrap; /* Izinkan wrap pada layar kecil */
+        }
+
+        .footer-logo {
+            height: 60px; /* Ukuran proporsional untuk logo */
+            width: auto; /* Mempertahankan rasio aspek */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            section h2 {
+                font-size: 1.5em;
+            }
+            .profile-image {
+                width: 150px;
+                height: 187.5px;
+            }
+            footer {
+                flex-direction: column; /* Ubah ke kolom pada layar kecil */
+                gap: 5px;
+            }
+            .footer-logo {
+                height: 25px; /* Sedikit lebih kecil pada layar kecil */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="Heider.jpg" alt="Foto Karl G. Heider" class="profile-image">
+            <h1>Karl G. Heider</h1>
+            <p>Antropolog dan Pakar Antropologi Visual</p>
+        </header>
+
+        <section>
+            <h2 class="toggle-header">1. Kehidupan</h2>
+            <div class="toggle-content content-hidden">
+                <p>Karl Gustav Heider lahir pada <strong>21 Januari 1935</strong> di Northampton, Massachusetts, Amerika Serikat. Ia adalah putra dari psikolog Fritz Heider dan Grace (née Moore) Heider. Karl adalah anak pertama dari tiga bersaudara dan tumbuh dalam lingkungan yang seharusnya bi-kultural, namun ia tidak menyadari bahwa ayahnya bukan orang Amerika sampai ia berusia sekitar sepuluh tahun.</p>
+                <p>Ayahnya, Fritz Heider, adalah seorang psikolog Gestalt Austria yang datang ke Smith College pada tahun 1930. Ibunya juga seorang psikolog yang bekerja dengan ayahnya dan akhirnya meraih gelar PhD.</p>
+                <p>Pada tahun 1947, keluarganya pindah ke Kansas, yang ia benci. Ia menikah dengan Eleanor Rosch, seorang psikolog kognitif eksperimental yang merupakan mahasiswa pascasarjana psikologi di Harvard, namun pernikahan mereka tidak bertahan lama. Ia kemudian bertemu Malie, istrinya saat ini, segera setelah tiba di South Carolina.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="toggle-header">2. Pendidikan</h2>
+            <div class="toggle-content content-hidden">
+                <p>Heider memulai studi pasca-sarjana di Williams College di Massachusetts, namun saat itu tidak ada program antropologi. Ia terus melakukan kerja lapangan di South Dakota selama musim panas. Kemudian, ia pindah sebagai mahasiswa tingkat tiga ke Harvard pada tahun 1954, yang saat itu memiliki salah satu dari sedikit departemen antropologi.</p>
+                <p>Di Harvard, ia diwawancarai oleh Hallam Movius dan Ernest Hooten. Ia mengambil mata kuliah dari Cora du Bois, Clyde Kluckholn, dan John Pelzel, yang ia anggap sebagai tiga guru hebatnya. Ia meraih gelar Sarjana Antropologi pada tahun 1956.</p>
+                <p>Setelah lulus, ia menghabiskan setahun bepergian perlahan melintasi Asia dengan beasiswa perjalanan Sheldon. Ia melakukan beberapa penelitian arkeologi di Thailand. Di India, ia mendapatkan beasiswa Pemerintah Austria dan pergi ke Institut Etnologi di Wina (1957-1958). Ia kembali ke Harvard dan meraih gelar Magister pada tahun 1959 dan gelar PhD pada tahun 1966. Ia menyelesaikan disertasi PhD-nya pada tahun 1965.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="toggle-header">3. Karier</h2>
+            <div class="toggle-content content-hidden">
+                <p>Karya Karl Heider berkisar dari antropologi psikologis hingga antropologi visual, berfokus pada emosi dan seksualitas. Awalnya, ia sangat tertarik pada arkeologi dan bahkan menemukan situs zaman perunggu di Thailand. Ia menghabiskan musim panas di Fort McDowell Yavapai Reservation dekat Phoenix, Arizona, mengerjakan skripsi kehormatan tentang akulturasi.</p>
+                <p>Ia dikenal atas penelitian lapangannya yang mencakup studi tentang Dugum Dani di Nugini Barat dan Minangkabau di Sumatera Barat. Ia juga menjabat sebagai kamera kedua untuk film 'Dead Birds' yang dibuat oleh Robert Gardner. Setelah kembali dari Nugini, ia menulis disertasinya tentang budaya materi suku Dani.</p>
+                <p>Setelah meraih PhD, ia menghabiskan satu tahun di Harvard sebagai instruktur, kemudian lima tahun di Brown sebagai antropolog budaya (dari tahun 1966) dan tidak pernah mengajar arkeologi, meskipun ia tertarik pada artefak. Ia meninggalkan Brown dan setelah empat tahun "limbo" karena sulit mencari pekerjaan, ia mendapatkan pekerjaan di University of South Carolina sebagai ketua departemen antropologi yang baru, dan telah mengajar di sana selama 33 tahun.</p>
+                <p>Di South Carolina, ia memulai pekerjaannya tentang emosi di Minangkabau. Ia juga mengajar antropologi di universitas provinsi di sana. Ia menyadari bahwa film-film Indonesia adalah "film-film Indonesia yang bagus berdasarkan prinsip-prinsip yang ia dapatkan dari penelitian emosinya". Ia akhirnya melakukan studi tentang sinema Indonesia, yang juga keluar pada tahun 1991, menganggap film-film Indonesia sebagai teks budaya.</p>
+                <p>Pada tahun 2008, ia pensiun dari Departemen Antropologi di University of South Carolina. Ia menyatakan bahwa ia akan menghabiskan tahun berikutnya untuk menulis dan bahwa ia tertarik pada film etnografi dan bagaimana video dapat meningkatkan penelitian etnografi. Ia juga ingin membuat film etnografi tentang Minangkabau dan melakukan putaran penelitian emosi lainnya.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="toggle-header">4. Karya Tulis dan Film</h2>
+            <div class="toggle-content content-hidden">
+                <ul class="works-list">
+                    <li><em>Psychology of Interpersonal Relations</em> (ditulis oleh ayahnya, Fritz Heider, yang menginspirasi Karl)</li>
+                    <li>Disertasi tentang Budaya Material Suku Dani Irian Jaya yang ia dedikasikan untuk Clyde Kluckholn</li>
+                    <li>Artikel "Dani Sexuality. A Low Energy System" yang diterbitkan di MAN</li>
+                    <li><em>Landscapes of Emotion: Three Cultures of Emotion in Indonesia</em> (1991), yang diterbitkan dari penelitian emosinya di Minangkabau</li>
+                    <li><em>The Cultural Context of Emotion: Folk Psychology in West Sumatra</em>  (2011). Buku ini merupakan kelanjutan dan pendalaman dari buku <em>Lanscapes of Emotion</em></li>
+                    <li>Studi tentang sinema Indonesia (1991), <em>Indonesian Cinema: National Culture on Screen</em></li>
+                    <li><em>Films for Anthropological Teaching</em> (edisi ke-8, 1995)</li>
+                    <li><em>The Dugum Dani: A Papuan Culture in the Highlands of West New Guinea</em></li>
+                    <li><em>The Dani of West Irian: An Ethnographic Companion to the Film Dead Birds</em></li>
+                    <li><em>Ethnographic Film</em></li>
+                    <li><em>Grand Valley Dani: Peaceful Warriors</em></li>
+                    <li><em>Images of the South: Constructing a Regional Culture on Film and Video</em></li>
+                    <li><em>Seeing Anthropology: Cultural Anthropology Through Film</em></li>
+                    <li><em>The Wisdom of the Rice: Emotion and Folk Psychology in West Sumatra</em> (dalam proses penyelesaian)</li>
+                    <li>Artikel "The Rashomon Effect: When Ethnographers Disagree"</li>
+                </ul>
+                <p><strong>Karya Film:</strong></p>
+                <ul class="works-list">
+                    <li>'Tikal' (1961)</li>
+                    <li>'Dani Sweet Potatoes' (1974)</li>
+                    <li>'Dani Houses' (1974)</li>
+                    <li>Bertindak sebagai kamera kedua pada 'Dead Birds', film yang dibuat oleh Robert Gardner</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="toggle-header">5. Pernyataan Penting tentang Minangkabau</h2>
+            <div class="toggle-content content-hidden">
+                <div class="quote-box">
+                    <p><em>"For the study of emotion, the Minangkabau seemed a good starting point. They are considered more coarse, or emotionally open, than Javanese. Most Minangkabau are comfortably bilingual in their regional language, Minangkabau, and the national language, Indonesian. This, as will soon become apparent, affords an important opportunity to examine emotion in two different languages that are used by the same people."</em></p>
+                    <p class="citation">— Karl G. Heider, <em>Landscapes of Emotion: Mapping Three Cultures of Emotion in Indonesia</em>, 1991, hlm. 4</p>
+                    <p><strong>Terjemahan:</strong></p>
+                    <p><em>"Untuk meneliti masalah emosi, Minangkabau tampaknya dapat titik berangkat yang baik. Orang Minang dianggap lebih "kasar", atau lebih blak-blakan secara emosional, dibandingkan orang Jawa. Kebanyakan orang Minangkabau fasih dalam dua bahasa, bahasa daerah mereka, Minangkabau, dan bahasa nasional, Indonesia. Seperti yang akan dibahas nanti, ini menjadi peluang berharga untuk mengkaji emosi dalam dua bahasa berbeda yang digunakan oleh orang yang sama."</em></p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <img src="logo.png" alt="Logo Komunitas Titian Akal Budi Yogyakarta" class="footer-logo">
+            <p>&copy; 2025 Komunitas Titian Akal Budi Yogyakarta (Inyiak Ridwan Muzir)</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleHeaders = document.querySelectorAll('.toggle-header');
+
+            toggleHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('content-hidden');
+                    this.classList.toggle('expanded');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

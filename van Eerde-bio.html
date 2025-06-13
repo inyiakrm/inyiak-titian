@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biografi Johan Christiaan van Eerde</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Definisi Warna Baru Berdasarkan Logo Komunitas Titian */
+            --color-primary-brown: #6F4E37; /* Cokelat Gelap dari Logo */
+            --color-dark-text: #333333;   /* Hitam/Abu-abu Sangat Gelap untuk Teks Utama */
+            --color-light-background: #FDFDFD; /* Hampir Putih, Sedikit Lebih Hangat */
+            --color-medium-gray: #757575; /* Abu-abu Sedang untuk Teks Sekunder */
+            --color-accent-border-light: #A37B5C; /* Cokelat Lebih Terang untuk Aksen */
+            --color-accent-border-dark: #5A3F2F; /* Cokelat Lebih Gelap untuk Aksen Lain */
+            --color-quote-background: #FFFBF5; /* Cream Sangat Pucat untuk Kotak Kutipan */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-light-background);
+            color: var(--color-dark-text);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: var(--color-primary-brown);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: var(--color-medium-gray);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 250px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: var(--color-primary-brown);
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            padding-right: 30px;
+        }
+
+        section h2::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--color-medium-gray);
+            transition: transform 0.3s ease;
+        }
+
+        section h2.expanded::after {
+            content: '-';
+        }
+
+        .content-hidden {
+            display: none;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            border-left: 4px solid var(--color-accent-border-light);
+            border-radius: 4px;
+        }
+
+        ul li strong {
+            color: var(--color-primary-brown);
+        }
+
+        .works-list li {
+            border-left: 4px solid var(--color-accent-border-dark);
+        }
+
+        .quote-box {
+            background-color: var(--color-quote-background);
+            border-left: 5px solid var(--color-primary-brown);
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: var(--color-dark-text);
+            border-radius: 5px;
+        }
+
+        .quote-box p {
+            margin-bottom: 10px;
+        }
+
+        .quote-box .citation {
+            text-align: right;
+            font-size: 0.9em;
+            color: var(--color-medium-gray);
+            font-style: normal;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: var(--color-medium-gray);
+            /* Tambahan untuk menyusun logo dan teks secara horizontal */
+            display: flex;
+            justify-content: center; /* Pusatkan secara horizontal */
+            align-items: center; /* Sejajarkan vertikal */
+            gap: 10px; /* Jarak antara logo dan teks */
+            flex-wrap: wrap; /* Izinkan wrap pada layar kecil */
+        }
+
+        .footer-logo {
+            height: 60px; /* Ukuran proporsional untuk logo */
+            width: auto; /* Mempertahankan rasio aspek */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            section h2 {
+                font-size: 1.5em;
+            }
+            .profile-image {
+                width: 150px;
+                height: 187.5px;
+            }
+            footer {
+                flex-direction: column; /* Ubah ke kolom pada layar kecil */
+                gap: 5px;
+            }
+            .footer-logo {
+                height: 25px; /* Sedikit lebih kecil pada layar kecil */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="van Eerde.jpeg" alt="Foto Johan Christiaan van Eerde" class="profile-image">
+            <h1>Johan Christiaan van Eerde</h1>
+            <p>Seorang Etnolog dan Pejabat Administrasi Kolonial Belanda</p>
+        </header>
+
+        <section>
+            <h2 class="toggle-header">1. Kehidupan</h2>
+            <div class="toggle-content content-hidden">
+                <p>Johan Christiaan van Eerde lahir pada tanggal <strong>11 Maret 1871</strong> di Workum, Friesland. Beliau wafat pada tanggal <strong>1 April 1936</strong>. Awalnya, ia berniat untuk mempelajari teologi, namun kemudian beralih ke studi di Indische Instelling te Delft, sebuah institusi yang sangat berpengaruh pada masanya.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="toggle-header">2. Pendidikan</h2>
+            <div class="toggle-content content-hidden">
+                <p>Van Eerde menempuh pendidikan di <strong>gymnasium di Deventer</strong> dan <strong>H.B.S.</strong>, sebelum melanjutkan studinya di <strong>Indische Instelling te Delft</strong>.</p>
+                <p>Pada masa itu, <strong>Indische Instelling te Delft</strong> (secara resmi bernama 'De Instelling van onderwijs in de Taal-, Land- en Volkenkunde van Nederlandsch Oost-Indië' atau 'Institusi Pendidikan Bahasa, Tanah, dan Etnologi Hindia Timur Belanda') adalah sebuah lembaga pendidikan di Delft, Belanda. Lembaga ini beroperasi dari tahun <strong>1864 hingga 1901</strong> dan didirikan khusus untuk melatih para calon pejabat administrasi yang akan ditempatkan di Hindia Belanda (sekarang Indonesia). Tujuannya adalah membekali mereka dengan pengetahuan tentang bahasa, sejarah, dan budaya pribumi Indonesia sebelum mereka diberangkatkan untuk bertugas di koloni.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="toggle-header">3. Karier</h2>
+            <div class="toggle-content content-hidden">
+                <p>Van Eerde memulai kariernya pada tahun <strong>1892</strong> di <strong>Binnenlandsch Bestuur</strong> (administrasi internal Hindia Belanda). Pada tahun <strong>1893</strong>, ia ditugaskan ke Pesisir Barat Sumatera sebagai adspirant-controleur. Tiga tahun kemudian, ia ditugaskan ke Residen Bali dan Lombok untuk mengelola pendapatan tanah dan masalah pertanian di divisi Lombok. Pada tahun <strong>1900</strong>, ia dipromosikan menjadi controleur 1ste klasse.</p>
+                <p>Setelah pensiun pada tahun <strong>1906</strong>, Van Eerde menjadi direktur surat kabar <strong>'Vaderland'</strong>. Dari tahun <strong>1909 hingga <strong>1913</strong></strong>, ia menjabat sebagai referendaris di Departemen Koloni. Pada tahun <strong>1913</strong>, ia diangkat sebagai direktur <strong>Departemen Etnologi di Koloniaal Instituut di Amsterdam</strong>. Kemudian, pada tahun <strong>1917</strong>, ia diangkat sebagai <strong>profesor di Universitas Amsterdam</strong>, dengan fokus pada <strong>Koloniale Land- dan Volkenkunde</strong> (Etnologi dan Geografi Kolonial). Karya Van Eerde menekankan pentingnya praktis etnologi untuk administrasi kolonial, menganjurkan pemahaman yang lebih mendalam tentang budaya pribumi.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="toggle-header">4. Karya Tulis</h2>
+            <div class="toggle-content content-hidden">
+                <ul class="works-list">
+                    <li><strong>1910:</strong> <em>Hindu-Javaansche en Balische eeredienst.</em> (Peribadatan Hindu-Jawa dan Bali.)</li>
+                    <li><strong>1911:</strong> <em>Vingermutilatie in Centraal Nieuw-Guinea.</em> (Mutilasi Jari di Papua Nugini Tengah.)</li>
+                    <li><strong>1911:</strong> <em>De Madjapahitsche onderhoorigheden Goeroen en Seran.</em> (Dependencies Majapahit Goeroen dan Seran.)</li>
+                    <li><strong>1914:</strong> <em>Le régime forestier dans les colonies néerlandaises.</em> (Rezim Kehutanan di Koloni Belanda.)</li>
+                    <li><strong>1914:</strong> <em>Koloniale Volkenkunde. Eerste stuk: Omgang met inlanders.</em> (Etnologi Kolonial. Bagian Pertama: Berinteraksi dengan Penduduk Pribumi.)</li>
+                    <li><strong>1916:</strong> <em>De bestuursambtenaar in dienst van de inlanders?.</em> (Pejabat Administrasi dalam Pelayanan Penduduk Pribumi?.)</li>
+                    <li><strong>1887:</strong> <em>'Minangkabausche poëzie'</em>, diterbitkan dalam <em>Tijdschrift voor Indische Taal-, Land- en Volkenkunde</em>, volume 39, halaman 529-80. (Puisi Minangkabau.)</li>
+                    <li><strong>[Tahun tidak disebutkan]:</strong> <em>EEN HUWELIJK BIJ DE MINANGKA-BAUSCHE MALEIERS. ZEDEN EN GESPREKKEN.</em> (Sebuah Pernikahan pada Orang Melayu Minangkabau. Adat dan Percakapan.)</li>
+                    <li><strong>1920/1921:</strong> <em>De volken van Nederlandsch-Indië.</em> (Bangsa-Bangsa Hindia Belanda.)</li>
+                    <li><strong>1921:</strong> <em>Dewa Manggis V van Gianjar.</em> (Dewa Manggis V dari Gianyar.)</li>
+                    <li><strong>1921/1922:</strong> <em>Indonesische en Melanesische beschavingsgebieden op Nieuw-Guinee.</em> (Wilayah Peradaban Indonesia dan Melanesia di Papua Nugini.)</li>
+                    <li><strong>1928:</strong> <em>Handel en volkenkunde.</em> (Perdagangan dan Etnologi.)</li>
+                    <li><strong>1928:</strong> <em>Het verblijf bij den Wesia.</em> (Tinggal Bersama Wesia.)</li>
+                    <li><strong>1928:</strong> <em>De oudste berichten omtrent den Indischen Archipel.</em> (Laporan Tertua Mengenai Kepulauan Hindia.)</li>
+                    <li><strong>1928:</strong> <em>Eiland-beschaving.</em> (Peradaban Pulau.)</li>
+                    <li><strong>1928:</strong> <em>Ethnologie des Indes Néerlandaises.</em> (Etnologi Hindia Belanda.)</li>
+                    <li><strong>1929:</strong> <em>Primitieve handel.</em> (Perdagangan Primitif.)</li>
+                    <li><strong>1929:</strong> <em>Ethnography and demography.</em> (Etnografi dan Demografi.)</li>
+                    <li><strong>1930:</strong> <em>Onpersoonlijk ruilverkeer in den Indischen Archipel.</em> (Perdagangan Barter Tanpa Pribadi di Kepulauan Hindia.)</li>
+                    <li><strong>1930:</strong> <em>Investituursteenen in Zuid-Celebes.</em> (Batu Investitur di Sulawesi Selatan.)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="toggle-header">5. Pernyataan Penting tentang Minangkabau</h2>
+            <div class="toggle-content content-hidden">
+                <div class="quote-box">
+                    <p><em>"Doch behalve dat, leveren zij eene proeve van kinderlijke naiëve poëzie, die, alles wat kinderlijk is, eene bekoring heeft en voor zich inneemt door de oprechtheid der bewonderende uitingen eener kinderziel"</em></p>
+                    <p class="citation">— J.C. van Eerde, <em>Minangkabausche Poezie</em>, 1887, hlm. 580</p>
+                    <p><strong>Terjemahan:</strong></p>
+                    <p><em>"Namun, selain itu, mereka menyajikan contoh puisi yang naif kekanak-kanakan, yang, seperti segala sesuatu yang kekanak-kanakan, memiliki pesona dan memikat hati karena ketulusan ungkapan kekaguman jiwa seorang anak."</em></p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <img src="logo.png" alt="Logo Komunitas Titian Akal Budi Yogyakarta" class="footer-logo">
+            <p>&copy; 2025 Komunitas Titian Akal Budi Yogyakarta (Inyiak Ridwan Muzir)</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleHeaders = document.querySelectorAll('.toggle-header');
+
+            toggleHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('content-hidden');
+                    this.classList.toggle('expanded');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

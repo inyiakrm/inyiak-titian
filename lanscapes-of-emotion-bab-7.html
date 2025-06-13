@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Bab Buku: Landscapes of Emotion - Bab 7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F5F5DC; color: #333333; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        .nav-link { 
+            cursor: pointer; 
+            padding: 8px 16px; 
+            margin-bottom: 8px; /* Menambahkan jarak antar poin navigasi */
+            border-radius: 8px; 
+            transition: background-color 0.3s; 
+            text-align: left; /* Membuat teks rata kiri */
+            display: block; /* Memastikan setiap link mengambil lebar penuh untuk rata kiri */
+        }
+        .nav-link:hover, .nav-link.active-nav { background-color: #D2B48C; color: #FFFFFF; } /* Coklat muda untuk hover/aktif */
+        .card { background-color: #FFFFFF; padding: 24px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); margin-bottom: 16px;}
+        /* Tooltip styles not needed for this simplified chapter, but kept for consistency if desired later */
+        .tooltip-interactive { position: relative; display: inline-block; border-bottom: 1px dotted #333333; cursor: pointer; color: #4A90E2; }
+        .tooltip-interactive .tooltiptext { visibility: hidden; width: 220px; background-color: #333333; color: #FFFFFF; text-align: center; border-radius: 6px; padding: 8px; position: absolute; z-index: 1; bottom: 125%; left: 50%; margin-left: -110px; opacity: 0; transition: opacity 0.3s; font-size: 0.875rem; }
+        .tooltip-interactive:hover .tooltiptext { visibility: visible; opacity: 1; }
+        h1, h2, h3, h4 { color: #2F4F4F; } /* Abu-abu gelap kebiruan untuk judul */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F5F5DC; }
+        ::-webkit-scrollbar-thumb { background: #8FBC8F; border-radius: 4px; } /* Hijau laut redam untuk scrollbar thumb */
+        ::-webkit-scrollbar-thumb:hover { background: #709a70; }
+        .list-circle { list-style-type: circle; } /* Added for circle list-style */
+        .footer { 
+            margin-top: 40px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ccc; 
+            text-align: center; 
+            color: #777; 
+            font-size: 0.9em; 
+        }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen">
+
+    <aside class="w-full md:w-64 bg-[#E6D8C0] p-6 shadow-lg md:sticky md:top-0 md:h-screen overflow-y-auto">
+        <h1 class="text-2xl font-bold mb-6 text-center">Navigasi Bab 7</h1>
+        <nav>
+            <ul>
+                <li><a class="nav-link active-nav" data-section-id="intro-page-bab7" onclick="showSection('intro-page-bab7', event)">Pengantar Bab 7</a></li>
+                <li><a class="nav-link" data-section-id="pandangan-emosi" onclick="showSection('pandangan-emosi', event)">3 Pandangan Utama Emosi</a></li>
+                <li><a class="nav-link" data-section-id="peta-emosi-menyeluruh" onclick="showSection('peta-emosi-menyeluruh', event)">Peta Emosi Secara Menyeluruh</a></li>
+                <li><a class="nav-link" data-section-id="metafora-lanskap" onclick="showSection('metafora-lanskap', event)">Metafora "Lanskap Emosi"</a></li>
+                <li><a class="nav-link" data-section-id="perbedaan-cluster" onclick="showSection('perbedaan-cluster', event)">Perbedaan Bentuk Gugusan Kata</a></li>
+                <li><a class="nav-link" data-section-id="tingkat-emosionalitas" onclick="showSection('tingkat-emosionalitas', event)">Kata Mana yang Paling Emosional?</a></li>
+                <li><a class="nav-link" data-section-id="pergeseran-biru" onclick="showSection('pergeseran-biru', event)">Pergeseran Biru (Blue Shift)</a></li>
+                <li><a class="nav-link" data-section-id="emosi-hasilkan-emosi" onclick="showSection('emosi-hasilkan-emosi', event)">Emosi Menghasilkan Emosi</a></li>
+                <li><a class="nav-link" data-section-id="indonesia-vs-inggris" onclick="showSection('indonesia-vs-inggris', event)">Indonesia vs. Inggris Amerika</a></li>
+                <li><a class="nav-link" data-section-id="isu-penting" onclick="showSection('isu-penting', event)">Isu-isu Krusial dalam Emosi</a></li>
+                <li><a class="nav-link" data-section-id="ringkasan-bab7" onclick="showSection('ringkasan-bab7', event)">Ringkasan Bab 7</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+        <section id="intro-page-bab7" class="content-section active">
+            <div class="card mb-6">
+                <h2 class="text-3xl font-bold mb-4">Bab 7 <em>Lanscapes of Emotion</em>: Kesimpulan</h2>
+                <p class="mb-4 text-lg">Setelah Heider selesai mengumpulkan semua data dan menggambar peta-peta emosinya, Bab 7 ini adalah tempat dia menarik semua benang merah dan menjawab pertanyaan besarnya: **"Apa sih sebenarnya yang kita pelajari tentang pengaruh budaya terhadap emosi?"** </p>
+                <p class="text-md italic">Gunakan navigasi di sisi kiri untuk menjelajahi inti pembahasan Bab 7.</p>
+            </div>
+        </section>
+
+        <section id="pandangan-emosi" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">3 Pandangan Utama Emosi</h2>
+                <p class="mb-4 text-lg">Heider memulai dengan mengakui bahwa dalam penelitian emosi, ada tiga pandangan utama:</p>
+                <h3 class="text-2xl font-semibold mb-2">1. Semuanya Sama (Pan-kulturalisme Universal):</h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Pandangan ini bilang emosi itu universal, sama di mana-mana, dan budaya cuma beda tipis di permukaan. </li>
+                    <li>Biasanya dipegang psikolog yang meneliti orang Amerika dan menganggap itu berlaku umum, atau mereka yang generalisasinya sangat luas sehingga perbedaan budaya terabaikan. </li>
+                </ul>
+                <h3 class="text-2xl font-semibold mb-2">2. Semuanya Beda (Relativisme Kultural):</h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Pandangan ini bilang emosi itu sepenuhnya dibentuk budaya, jadi beda-beda di setiap tempat. </li>
+                    <li>Biasanya dipegang oleh etnografer yang fokus pada variasi budaya. </li>
+                </ul>
+                <h3 class="text-2xl font-semibold mb-2">3. Ada yang Sama, Ada yang Beda (Posisi Kompromi):</h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Pandangan ini bilang ada bagian emosi yang universal (misalnya ekspresi wajah dasar), tapi budaya punya "aturan penampilan" yang memengaruhinya. </li>
+                    <li>Atau, ada emosi dasar yang sama, tapi detailnya beda di tiap budaya. </li>
+                </ul>
+                <p class="mb-4 text-lg">Heider sendiri memulai dengan dugaan bahwa sebagian besar emosi itu pan-kultural, tapi sebagian kecil itu spesifik budaya (perkiraan awalnya 80%-20%).  Namun, dari hasil penelitiannya sendiri, dia menyimpulkan bahwa **pengaruh budaya ternyata tidak hanya pada detail kecil kata-kata emosi, tapi juga bisa mengubah gugusan kata (cluster) dan bahkan area emosi yang lebih besar.**  Ini bukan sekadar beda tipis, tapi perbedaan nyata yang bisa kita lihat dari peta-peta yang dia buat. </p>
+            </div>
+        </section>
+
+        <section id="peta-emosi-menyeluruh" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Peta Emosi Secara Menyeluruh: Siapa yang Lebih "Terbuka"?</h2>
+                <p class="mb-4 text-lg">Heider melihat peta emosi yang dia buat punya karakteristik berbeda dalam hal tingkat interkoneksi dan kedekatan antar kata. </p>
+                <ul class="list-disc list-inside mb-4">
+                    <li><strong>Bahasa Indonesia Minangkabau:</strong> Peta ini paling "nyambung" dan saling terhubung. Ini pada dasarnya adalah satu unit besar, dengan hanya sedikit unit terisolasi yang relatif tidak berarti. </li>
+                    <li><strong>Bahasa Minangkabau:</strong> Peta ini juga punya unit besar yang saling terhubung, tapi lebih kecil dari bahasa Indonesia Minangkabau, dan ada lebih banyak unit terisolasi. </li>
+                    <li><strong>Bahasa Indonesia Jawa:</strong> Peta ini yang paling "tersebar" dan terisolasi. Unit pusatnya lebih kecil dan memiliki unit terisolasi paling banyak. </li>
+                </ul>
+                <p class="mb-4 text-lg"><strong>Apa Artinya Ini?</strong> Peta yang lebih saling terhubung dan padat menunjukkan bahwa penutur bahasa tersebut punya **kesepahaman budaya yang lebih besar** tentang bagaimana kata-kata emosi saling terkait.  Dengan kata lain, orang Minangkabau (terutama saat berbahasa Indonesia) **lebih banyak membicarakan emosi** dan punya konsensus yang lebih jelas tentang hubungannya, dibandingkan orang Jawa.  Ini sejalan dengan anggapan awal Heider bahwa orang Minangkabau lebih terbuka secara emosional daripada orang Jawa. </p>
+                <p class="mb-4 text-lg">Heider juga mencatat bahwa total jumlah kata emosi yang mungkin dalam setiap bahasa (Minangkabau, Indonesia Minangkabau, Indonesia Jawa) kira-kira sama, namun tingkat kesepakatan tentang bagaimana kata-kata itu saling terkait sangat berbeda. </p>
+            </div>
+        </section>
+
+        <section id="metafora-lanskap" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Metafora "Lanskap Emosi"</h2>
+                <p class="mb-4 text-lg">Heider menyebut peta-peta ini sebagai "lanskap emosi" karena dia ingin menekankan bahwa ranah emosi dalam pikiran kita itu **tidak teratur** seperti daftar kata biasa. </p>
+                <p class="mb-4 text-lg">Dia menggunakan metafora ini untuk menggambarkan ketidakberaturan ruang emosional yang mencakup gugusan diskrit, rantai gugusan, area padat atau jarang, area dengan prototipikalitas emosi yang tinggi, dan area di mana rangkaian kata menjadi semakin tidak emosional. </p>
+                <p class="mb-4 text-lg">Peta ini tidak sama persis dengan "pedesaan" kognitif, ada bagian yang dihilangkan dan didistorsi.  Namun, itu bisa menjadi panduan yang berguna dan akurat dalam konvensinya sendiri. </p>
+            </div>
+        </section>
+
+        <section id="perbedaan-cluster" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Perbedaan Bentuk Gugusan Kata (Cluster Formations)</h2>
+                <p class="mb-4 text-lg">Dalam beberapa kasus, peta-peta tersebut berbeda dalam pembentukan asosiasi yang sebenarnya.  Sebuah kata atau kelompok kecil kata yang sangat terikat pada satu gugusan di satu peta, adalah bagian dari gugusan lain di peta lain. </p>
+                <p class="mb-4 text-lg">Contohnya:</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>*Angek ati* (hati panas) ada di gugusan "Happy" di Minangkabau, tetapi padanannya (*panas hati*) ada di gugusan "Anger" di kedua peta Indonesia. </li>
+                    <li>*Bangga* dan *berbesar hati* (keduanya 'bangga') sangat terikat pada gugusan "Happy" di kedua peta Minangkabau, tetapi di Indonesia Jawa mereka membentuk isolat. </li>
+                    <li>Gugusan "Fear" di Minangkabau ada di area "Worry", tetapi di Indonesia Jawa ada di area "Confusion" yang berdekatan. </li>
+                </ul>
+                <p class="mb-4 text-lg">Heider berhipotesis bahwa perbedaan-perbedaan ini menunjukkan perbedaan nyata dalam cara berpikir tentang emosi dan dapat dikaitkan dengan fitur budaya yang lebih luas. </p>
+            </div>
+        </section>
+
+        <section id="tingkat-emosionalitas" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Kata Mana yang "Paling Emosional"? (Prototipikalitas)</h2>
+                <p class="mb-4 text-lg">Tidak semua kata yang muncul di peta memiliki status yang sama kuat sebagai kata emosi.  Peringkat prototipikalitas memberikan ukuran yang lebih jelas. </p>
+                <p class="mb-4 text-lg">Dua fitur penting yang terungkap dari distribusi peringkat prototipikalitas adalah:</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li><strong>Puncak Emosionalitas:</strong> Area emosionalitas tertinggi terletak di area **"Sedih"**.  Ini sangat jelas untuk Minangkabau dan sedikit kurang jelas untuk Indonesia Minangkabau.  Berbeda dengan bahasa Inggris Amerika, di mana kata-kata terkuat lebih tersebar (*love, anger, hate, depression, fear, jealousy, happiness*, dll.). </li>
+                    <li><strong>Batas Kategori yang Samar:</strong> Distribusi peringkat prototipikalitas menunjukkan bagaimana kategori emosi itu sendiri memudar, dengan kata-kata berperingkat rendah berada di sekitar tepi peta.  Ini menunjukkan bahwa ranah emosi memiliki batas yang kabur, bukan tajam. </li>
+                </ul>
+                <p class="mb-4 text-lg">Prototipikalitas khusus dari kata "nostalgia" (*rindu* dan *kangen*) dapat dipahami dalam kaitannya dengan pentingnya merantau (migrasi sementara) bagi orang Minangkabau. </p>
+                <p class="mb-4 text-lg">Heider memprediksi bahwa orang Jawa, yang sangat peduli dengan harmoni dan ketertiban, mungkin akan menganggap berbagai emosi di area "Kebingungan" (termasuk area "Terkejut") sebagai emosi yang paling prototipikal. </p>
+            </div>
+        </section>
+
+        <section id="pergeseran-biru" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Pergeseran Biru (Blue Shift) dalam Terjemahan</h2>
+                <p class="mb-4 text-lg">Ketika orang Minangkabau diminta untuk memberikan padanan terjemahan antara bahasa Minangkabau dan Indonesia Minangkabau, Heider menemukan tiga jenis respons. </p>
+                <p class="mb-4 text-lg">Yang paling menarik adalah pilihan kata non-padanan, non-kata kunci, sebagai padanan terjemahan.  Ini terjadi secara minor di seluruh penelitian, tetapi sangat kuat di gugusan "Cinta" dan "Keinginan" (#6, #3). </p>
+                <p class="mb-4 text-lg">Pola yang dominan adalah **pergeseran dari "cinta"/"nafsu" yang intens ke kata-kata "sedih"/"ingin" yang kurang intens.**  Ini berarti, padanan terjemahan yang dominan untuk setiap kata Indonesia adalah kata Minangkabau yang "lebih ringan" berikutnya, semua pilihan menjauh dari pusat yang intens.  Ini mengkonfirmasi karakterisasi bahasa Indonesia sebagai bahasa yang lebih kuat secara emosional. </p>
+                <p class="mb-4 text-lg">Heider menyebut fenomena ini sebagai **"pergeseran biru" (blue shift)**, yang berarti ada semacam "pendinginan" ketika beralih dari bahasa Minangkabau ke bahasa Indonesia. </p>
+            </div>
+        </section>
+
+        <section id="emosi-hasilkan-emosi" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Emosi Menghasilkan Emosi: "Titik Perhentian" dan "Titik Akhir"</h2>
+                <p class="mb-4 text-lg">Salah satu temuan tak terduga adalah seberapa sering emosi muncul dalam anteseden (penyebab) dan hasil (konsekuensi) emosi lain. </p>
+                <ul class="list-disc list-inside mb-4">
+                    <li><strong>Titik Perhentian (*Way Stations*):</strong> Ini adalah emosi yang sering **menyebabkan emosi lain**.  Mereka memiliki skor "emotion-genic" (persentase skenario di mana hasil emosi adalah emosi lain) yang tinggi. </li>
+                    <li><strong>Titik Akhir (*End Points*):</strong> Ini adalah emosi yang cenderung **tidak menghasilkan emosi lain** sebagai konsekuensinya.  Mereka memiliki skor "emotion-genic" yang rendah. </li>
+                </ul>
+                <p class="mb-4 text-lg">Yang menarik, dari delapan gugusan emosi yang paling "titik akhir" di kedua bahasa, **lima atau enam di antaranya adalah emosi yang sebelumnya diidentifikasi sebagai "emosi dasar"** dalam penelitian Barat (seperti Joy, Sadness, Fear, Anger).  Ini memberikan kriteria baru yang kuat untuk emosi dasar. </p>
+                <p class="mb-4 text-lg">Sebaliknya, gugusan emosi "titik perhentian" (yang menghasilkan emosi lain paling sering), seperti "Sensitif" (*Tersinggung*), "Mengejek" (*Ejek*), "Cemburu" (*Dengki*), "Menggoda" (*Sindiri*), "Hormat" (*Sopan*), dan "Antisipasi Gelisah" (*Resah*), seringkali tidak dianggap sebagai "emosi dasar" dan kurang memiliki padanan jelas di bahasa Inggris. </p>
+                <p class="mb-4 text-lg">Ini mendukung model perilaku emosi yang kompleks secara sinkronik (bersamaan), diakronik (berurutan), dan interaksional. </p>
+            </div>
+        </section>
+
+        <section id="indonesia-vs-inggris" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Perbandingan Antara Bahasa Indonesia dan Bahasa Inggris Amerika</h2>
+                <p class="mb-4 text-lg">Meskipun tidak ada data Amerika yang secara presisi sebanding, ada beberapa perbedaan mencolok antara skenario emosi Indonesia dan Amerika:</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li><strong>"Terkejut" (*Surprise*):</strong> Di Indonesia cenderung negatif (karena ketidakteraturan dianggap buruk), di Amerika cenderung positif. </li>
+                    <li><strong>"Tersinggung" (*Sensitive*):</strong> Gugusan ini sangat negatif bagi orang Indonesia, sedangkan "touching" (menyentuh hati/fisik) di Amerika bisa positif atau negatif. </li>
+                    <li><strong>Gugusan Kata Emosi Unik:</strong> Ada beberapa gugusan kata emosi di Indonesia ("Keseriusan", "Kejujuran", "Keraguan") yang meskipun sangat emosional di Indonesia, bahkan tidak dihitung dalam kategori "emosi" dalam bahasa Inggris Amerika. </li>
+                    <li><strong>"Rasa Bangga" (*Pride*):</strong> Dalam bahasa Inggris, ini mencakup area yang luas, tetapi di Indonesia terbagi dua menjadi "kebanggaan bahagia" (*bangga*) dan "kebanggaan arogan" (*sombong*). </li>
+                    <li><strong>Fokus Emosi:</strong> Emosi paling "emosional" (dengan peringkat prototipikalitas tertinggi) di Indonesia berada di area "Kesedihan", terutama di Minangkabau.  Sementara itu, "Kemarahan" sangat menonjol sebagai emosi di Inggris, tetapi tidak terlalu menonjol di Indonesia. </li>
+                    <li><strong>"Kerinduan" (*Longing*):</strong> Gugusan ini memiliki peringkat prototipikalitas tertinggi di Indonesia (*rindu* dan *kangen*).  Ini adalah emosi kerinduan dan nostalgia akan apa yang ditinggalkan, yang sangat relevan dengan budaya merantau Minangkabau. </li>
+                    <li><strong>"Takut" (*Fear*):</strong> Memiliki makna sekunder yang sangat kuat yaitu "rasa bersalah" (*guilt*), yang tidak begitu jelas dalam skenario rasa takut di bahasa Inggris Amerika. </li>
+                    <li><strong>"Cemburu" dan "Iri" (*Jealousy* and *Envy*):</strong> Skenario di Inggris menunjukkan kemungkinan hasil kesedihan selain kemarahan, tetapi orang Indonesia bereaksi terhadap "cemburu" dan "iri" dengan kedengkian yang lebih murni. </li>
+                    <li><strong>"Kesombongan Arogan" (*Arrogant Pride*):</strong> Dalam skenario Indonesia, orang yang sombong sebenarnya memang superior, sedangkan di Inggris mungkin hanya membayangkan superioritas.  Selain itu, hasilnya secara luar biasa adalah isolasi sosial. </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="isu-penting" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Isu-isu Krusial dalam Emosi</h2>
+                <p class="mb-4 text-lg">Heider membahas beberapa isu penting yang berhubungan dengan emosi secara umum dan khususnya emosi di Indonesia:</p>
+                <h3 class="text-2xl font-semibold mb-2">1. Keadaan Batin Versus Interaksi:</h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Ada alasan kuat untuk mengatakan bahwa budaya Minangkabau dan Indonesia lainnya lebih menekankan pada interaksi sosial dan hubungan sosial daripada keadaan batin individu otonom. </li>
+                    <li>Skenario emosi untuk "Senang" sangat mendukung hipotesis ini, terutama perbandingan antara Minangkabau dan Indonesia.  Namun, secara keseluruhan, bukti ini tidak terlalu kuat, dan skenario interaksi Indonesia tidak jauh lebih dominan daripada skenario emosi yang dilaporkan dari sumber Amerika dan Eropa. </li>
+                </ul>
+                <h3 class="text-2xl font-semibold mb-2">2. Keteraturan Versus Ketidakteraturan:</h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Di Indonesia dan Minangkabau, ada penekanan yang sangat kuat pada penciptaan dan pendorong keteraturan, serta ketidaksukaan terhadap ketidakteraturan. </li>
+                    <li>"Terkejut" adalah emosi utama ketidakteraturan—dari yang tidak terduga, yang membingungkan—dan di Minangkabau maupun Indonesia Minangkabau, hasilnya sangat negatif.  Ini mencerminkan sikap budaya yang berbeda terhadap keteraturan dan ketidakteraturan. </li>
+                    <li>Ada area yang luas di ketiga peta yang dapat disebut "Zona Ketidakteraturan", terdiri dari area "Kebingungan" dan "Keraguan", dengan "Ketakutan" dan "Kecemburuan" sebagai pengecualian.  Emosi-emosi kebingungan ini sangat mencerminkan keprihatinan budaya terhadap keteraturan dan ketidakteraturan. </li>
+                </ul>
+                <h3 class="text-2xl font-semibold mb-2">3. Aturan Penampilan (Display Rules):</h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Konsep "aturan penampilan" dari Paul Ekman adalah kontribusi penting untuk memahami hubungan antara budaya dan pan-kultural dalam emosi. </li>
+                    <li>Meskipun diharapkan, bukti aturan penampilan dalam skenario emosi ini ternyata jarang dan tidak terduga.  Aturan penampilan yang paling penting di Indonesia (mungkin di budaya mana pun) berkaitan dengan kontrol dan penyamaran kemarahan. </li>
+                    <li>Namun, dari skenario Minangkabau, penampakan kemarahan sangat sering, penyamaran kemarahan sama sekali tidak disebutkan.  Bukti terbaik untuk aturan penampilan adalah pada gugusan "Senang", di mana kebahagiaan sangat disamarkan dalam hasil Minangkabau tetapi tidak dalam hasil Indonesia. </li>
+                </ul>
+                <h3 class="text-2xl font-semibold mb-2">4. Rasa Malu (Shame) Versus Bersalah (Guilt):</h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Meskipun populer dalam tulisan antropologi, "malu" dan "bersalah" ternyata sulit ditemukan secara jelas di peta ini. </li>
+                    <li>"Malu" (*malu*) meskipun padanan satu katanya jelas, namun dalam peta ia bersifat periferal, bukan pusat gugusan yang penting. </li>
+                    <li>Situasi untuk "bersalah" (*guilt*) bahkan lebih bermasalah. Tidak ada kata Indonesia atau Minangkabau yang baik untuk "bersalah" yang muncul dalam daftar master atau elicitation akhir.  Namun, *takut* (dalam gugusan "Takut") memiliki skenario sekunder yang kuat yang mirip dengan "rasa bersalah". </li>
+                </ul>
+                <h3 class="text-2xl font-semibold mb-2">5. Emosi Dasar:</h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Beberapa emosi telah diidentifikasi sebagai emosi dasar dalam penelitian emosi Barat (misalnya, terkait dengan ekspresi wajah tertentu, aktivitas sistem saraf otonom, dan stabilitas lintas budaya). </li>
+                    <li>Minangkabau dan Indonesia Minangkabau menunjukkan kecocokan dengan ekspektasi pan-kultural dalam urutan menurun: Kesedihan, Kemarahan, Kebahagiaan, Terkejut, Cinta, Takut, Jijik, Penghinaan. </li>
+                    <li>Untuk empat emosi pertama, Minangkabau dan Indonesia Minangkabau sangat dekat dengan pola pan-kultural. Yang lain semakin bermasalah, menunjukkan fitur budaya-spesifik yang lebih kuat. </li>
+                    <li>"Cinta" dalam kedua bahasa Indonesia ini bercampur dengan "Kasihan", dan di peta dekat dengan "Sedih", bukan "Senang" seperti di bahasa Inggris. </li>
+                    <li>"Takut" memiliki skenario sekunder "Rasa Bersalah". </li>
+                    <li>"Jijik" dan "Penghinaan" sulit diterjemahkan dan tidak membentuk gugusan yang jelas di peta, meskipun subjek Minangkabau tidak kesulitan mengenalinya dalam eksperimen.  Ini mungkin karena mereka adalah emosi yang sangat sensitif dan paling sedikit dibicarakan secara terbuka. </li>
+                    <li>Data ini mendukung gagasan emosi dasar dan bahkan menemukan jenis bukti baru (sebagai "titik akhir" dalam aliran emosi).  Namun, hasil penelitian juga menunjukkan betapa menyeluruh dan rumitnya emosi dasar memiliki nuansa budaya-spesifik. </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="ringkasan-bab7" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Ringkasan Bab 7</h2>
+                <p class="mb-4 text-lg">Heider menyimpulkan bahwa penelitian ini menunjukkan bagaimana budaya secara menyeluruh dan rumit memengaruhi perilaku emosi, dan bahwa pengaruh ini tidak terbatas pada detail kecil kata-kata emosi, tetapi juga pada gugusan dan area emosi yang lebih besar. </p>
+                <p class="mb-4 text-lg">Buku ini berhasil mengidentifikasi fitur-fitur budaya-spesifik dari perilaku emosi terhadap latar belakang pan-kultural. </p>
+                <p class="mb-4 text-lg">Pertanyaan yang lebih tepat bukanlah apakah emosi bersifat individu atau interaksional, atau budaya-spesifik atau pan-kultural secara keseluruhan, melainkan: **Di mana dalam sistem emosi ini ada aspek individu, dan di mana ada aspek interaksi? Di mana yang pan-kultural, dan di mana yang budaya-spesifik?** </p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            @2025 Komunitas Titian Akal Budi Yogyakarta (Inyiak Ridwan Muzir)
+        </footer>
+    </main>
+
+    <script>
+        function showSection(sectionId, event) {
+            // Deactivate all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Activate the target content section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) { 
+                targetSection.classList.add('active');
+            } else {
+                console.error(`Section with ID '${sectionId}' not found.`);
+                return; 
+            }
+
+            // Deactivate all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active-nav');
+            });
+
+            // Find and activate the corresponding nav link using data-section-id
+            const navLinkToActivate = document.querySelector(`.nav-link[data-section-id="${sectionId}"]`);
+            if (navLinkToActivate) { 
+                navLinkToActivate.classList.add('active-nav');
+            } else {
+                console.error(`Navigation link for section '${sectionId}' not found.`);
+            }
+
+            // If this function was called by a click event, update the URL hash
+            if (event && event.currentTarget) {
+                window.location.hash = sectionId; 
+            }
+        }
+        
+        // Set initial active section based on URL hash or default to intro-page-bab7
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            const sections = [
+                'intro-page-bab7', 'pandangan-emosi', 'peta-emosi-menyeluruh', 'metafora-lanskap', 
+                'perbedaan-cluster', 'tingkat-emosionalitas', 'pergeseran-biru', 
+                'emosi-hasilkan-emosi', 'indonesia-vs-inggris', 'isu-penting', 'ringkasan-bab7'
+            ];
+            
+            let initialSectionId = 'intro-page-bab7'; 
+            if (hash && sections.includes(hash)) {
+                initialSectionId = hash;
+            }
+            
+            showSection(initialSectionId, null); 
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Bab Buku: Landscapes of Emotion - Bab 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F5F5DC; color: #333333; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        .nav-link { 
+            cursor: pointer; 
+            padding: 8px 16px; 
+            margin-bottom: 8px; /* Menambahkan jarak antar poin navigasi */
+            border-radius: 8px; 
+            transition: background-color 0.3s; 
+            text-align: left; /* Membuat teks rata kiri */
+            display: block; /* Memastikan setiap link mengambil lebar penuh untuk rata kiri */
+        }
+        .nav-link:hover, .nav-link.active-nav { background-color: #D2B48C; color: #FFFFFF; } /* Coklat muda untuk hover/aktif */
+        .card { background-color: #FFFFFF; padding: 24px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); margin-bottom: 16px;}
+        /* Tooltip styles not needed for this simplified chapter, but kept for consistency if desired later */
+        .tooltip-interactive { position: relative; display: inline-block; border-bottom: 1px dotted #333333; cursor: pointer; color: #4A90E2; }
+        .tooltip-interactive .tooltiptext { visibility: hidden; width: 220px; background-color: #333333; color: #FFFFFF; text-align: center; border-radius: 6px; padding: 8px; position: absolute; z-index: 1; bottom: 125%; left: 50%; margin-left: -110px; opacity: 0; transition: opacity 0.3s; font-size: 0.875rem; }
+        .tooltip-interactive:hover .tooltiptext { visibility: visible; opacity: 1; }
+        h1, h2, h3, h4 { color: #2F4F4F; } /* Abu-abu gelap kebiruan untuk judul */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F5F5DC; }
+        ::-webkit-scrollbar-thumb { background: #8FBC8F; border-radius: 4px; } /* Hijau laut redam untuk scrollbar thumb */
+        ::-webkit-scrollbar-thumb:hover { background: #709a70; }
+        .list-circle { list-style-type: circle; } /* Added for circle list-style */
+        .footer { 
+            margin-top: 40px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ccc; 
+            text-align: center; 
+            color: #777; 
+            font-size: 0.9em; 
+        }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen">
+
+    <aside class="w-full md:w-64 bg-[#E6D8C0] p-6 shadow-lg md:sticky md:top-0 md:h-screen overflow-y-auto">
+        <h1 class="text-2xl font-bold mb-6 text-center">Navigasi Bab 2</h1>
+        <nav>
+            <ul>
+                <li><a class="nav-link active-nav" data-section-id="intro-page-bab2" onclick="showSection('intro-page-bab2', event)">Pengantar Bab 2</a></li>
+                <li><a class="nav-link" data-section-id="kumpulkan-kata-emosi" onclick="showSection('kumpulkan-kata-emosi', event)">Mengumpulkan Kata Emosi</a></li>
+                <li><a class="nav-link" data-section-id="saring-daftar" onclick="showSection('saring-daftar', event)">Menyaring Kata Emosi</a></li>
+                <li><a class="nav-link" data-section-id="bangun-peta" onclick="showSection('bangun-peta', event)">Membangun Peta Hubungan Kata</a></li>
+                <li><a class="nav-link" data-section-id="mengapa-unik" onclick="showSection('mengapa-unik', event)">Mengapa Metode Ini Unik?</a></li>
+                <li><a class="nav-link" data-section-id="ringkasan-bab2" onclick="showSection('ringkasan-bab2', event)">Ringkasan Bab 2</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+        <section id="intro-page-bab2" class="content-section active">
+            <div class="card mb-6">
+                <h2 class="text-3xl font-bold mb-4">Bab 2 <em>Lanscapes of Emotion</em>: Memetakan Ranah Emosi (Metodologi)</h2>
+                <p class="mb-4 text-lg">Kalau di Bab 1 Heider menjelaskan apa yang ingin dia cari dan kenapa, nah di Bab 2 ini dia fokus pada **"Gimana caranya saya bikin peta emosi itu?"** Ini adalah bagian tentang *proses* dia bekerja.</p>
+                <p class="mb-4 text-lg">Bab ini adalah penjelasan detail tentang **metodologi inti** penelitian Heider, yaitu bagaimana dia membangun "peta kognitif" emosi. Dia menjadi seorang "kartografer" (pembuat peta) dari pikiran manusia, menggunakan kata-kata sebagai "titik-titik" di petanya.</p>
+                <p class="text-md italic">Gunakan navigasi di sisi kiri untuk menjelajahi inti pembahasan Bab 2.</p>
+            </div>
+        </section>
+
+        <section id="kumpulkan-kata-emosi" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Awal Mula: Mengumpulkan dan Mengembangkan "Daftar Kata Awal" Emosi</h2>
+                <h3 class="text-2xl font-semibold mb-2">1. Mengembangkan Daftar Kata Master </h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Heider memulai dengan membuat daftar kata-kata emosi dalam bahasa Indonesia. Dia tidak langsung ke bahasa Minangkabau karena saat itu dia belum terlalu menguasainya dan kamusnya juga tidak selengkap kamus bahasa Indonesia.</li>
+                    <li>Dia mengumpulkan kata-kata emosi dari pengetahuannya sendiri tentang bahasa Indonesia, dari berbagai kamus, dan bahkan dari novel-novel Indonesia yang ditulis orang Minangkabau. Akhirnya, terkumpul 38 kata emosi awal yang paling jelas.</li>
+                    <li>Setelah itu, Heider mengembangkan daftar master menjadi 189 kata dalam bahasa Indonesia dan 197 kata dalam bahasa Minangkabau pada awal tahun kedua kerja lapangan.</li>
+                </ul>
+                <h3 class="text-2xl font-semibold mb-2">2. Memperluas Daftar dengan Bantuan Informan </h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Untuk setiap kata starter bahasa Indonesia, orang Minangkabau dwibahasa diminta memberikan sinonim dalam bahasa Indonesia dan padanan terjemahan dalam bahasa Minangkabau.</li>
+                    <li>Heider juga menggunakan tugas penelitian lain di mana subjek diminta menggambarkan foto-foto emosi menggunakan tujuh kata emosi dasar Indonesia. Kemudian, dia mengulang tugas ini dalam format terbuka di bahasa Indonesia dan Minangkabau, meminta atribusi emosi untuk setiap foto tanpa membatasi respons pada set kata tertentu. Ini menghasilkan banyak kata baru yang ditambahkan ke daftar master.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="saring-daftar" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Menyaring Daftar: Mana yang Benar-benar "Emosi"?</h2>
+                <p class="mb-4 text-lg">Daftar kata yang terkumpul jadi banyak sekali. Heider dan tiga asisten penelitian Minangkabaunya menyaring kata-kata itu. Mereka harus memutuskan: **"Ini benar-benar kata emosi, atau cuma sifat/karakteristik seseorang?"** </p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Misalnya, kata "berani" (*berani*) dan "cerdik" (*cerdik*) itu lebih ke atribut atau karakteristik (*sifat*), bukan emosi, jadi dicoret dari daftar emosi. Ada perbedaan yang jelas antara *perasaan hati* (ranah emosi) dan *sifat* (ranah karakteristik).</li>
+                    <li>Sebagai hasilnya, dalam bahasa Indonesia, 36 kata ditolak sebagai *sifat* dan 149 dipertahankan sebagai *perasaan hati*. Dalam bahasa Minangkabau, 45 kata ditolak sebagai *sifat* dan 139 dipertahankan sebagai *raso ati*.</li>
+                    <li>Tujuannya bukan untuk membuat daftar kata yang secara sempit mendefinisikan ranah emosi, tetapi memilih cukup banyak kata untuk mencapai dan bahkan melampaui batas ranah emosi. Ini memungkinkan penelitian tentang batas-batas ranah emosi itu sendiri.</li>
+                </ul>
+                <p class="mb-4 text-lg">Setelah penyaringan lebih lanjut dan penambahan kata dari informan dwibahasa, Heider akhirnya memiliki dua daftar master: 209 kata Minangkabau dan 229 kata Indonesia. Dia yakin setiap kata di daftar ini dianggap sebagai kata emosi oleh seseorang di suatu tempat.</p>
+            </div>
+        </section>
+
+        <section id="bangun-peta" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Proses Inti: Membangun "Peta" Hubungan Kata</h2>
+                <p class="mb-4 text-lg">Inilah bagian paling unik. Heider meminta 50 orang informan (25 pria, 25 wanita, untuk memastikan tidak ada bias gender) untuk tugas ini:</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Orang Minangkabau mengisi daftar kata Minangkabau.</li>
+                    <li>Orang Minangkabau mengisi daftar kata Indonesia.</li>
+                    <li>Orang Jawa mengisi daftar kata Indonesia.</li>
+                </ul>
+                <p class="mb-4 text-lg">Untuk setiap kata yang dia berikan (disebut "kata starter"), informan diminta menyebutkan **kata-kata lain yang bersinonim atau sangat terkait dengannya**. Kalau ada lima atau lebih informan menyebutkan kata yang sama, maka kata itu dianggap punya hubungan yang kuat (potongan minimal 10%).</p>
+                <p class="mb-4 text-lg">Dengan data ini, Heider mulai menggambar "peta" secara manual. Dia menghubungkan kata-kata yang sering disebut bersama. Panah menunjukkan hubungan, dan angka di panah menunjukkan berapa kali hubungan itu muncul (dari maksimal 50 kali). Semakin kuat asosiasi antara dua kata, semakin pendek garis penghubungnya.</p>
+                <p class="mb-4 text-lg">Peta ini menunjukkan **"cluster" atau "gugusan" kata**. Maksudnya, kata-kata emosi yang sering dipakai bersama dan punya arti mirip itu berkumpul jadi satu kelompok, dengan banyak asosiasi di antara mereka dan sedikit asosiasi dengan kata-kata di luar kelompok tersebut. Heider menekankan bahwa *cluster* kata-kata mirip inilah yang paling sesuai dengan apa yang kita maksud dengan "emosi," bukan hanya satu kata tunggal.</p>
+                <p class="mb-4 text-lg">Contohnya, ada gugusan kata "Cinta/Kasih" (*kasih* dalam bahasa Indonesia) yang menunjukkan enam kata berasosiasi erat. Kata kunci (*key member*) dalam gugusan adalah kata yang memiliki asosiasi terbanyak, atau yang paling umum/multivalen.</p>
+            </div>
+        </section>
+
+        <section id="mengapa-unik" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Mengapa Pendekatan "Peta Jaringan" Ini Unik?</h2>
+                <p class="mb-4 text-lg">Heider tahu ada cara lain untuk memetakan hubungan kata-kata, seperti penskalaan multidimensi dan analisis kluster hirarkis. Namun, dia memilih **"peta jaringan" (network maps)** yang dia buat sendiri, dan menggunakannya dalam buku ini. Kenapa?</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li><strong>Lebih Detail/Kompleks:</strong> Peta jaringan menggambarkan kompleksitas hubungan antar kata secara lebih baik daripada penskalaan multidimensi (yang hanya menunjukkan kesamaan dimensi) atau diagram kluster hirarkis (yang menyembunyikan banyak informasi hubungan sekunder).</li>
+                    <li><strong>Tidak Membatasi:</strong> Pengumpulan data untuk peta jaringan tidak memerlukan kumpulan kata yang sudah ditentukan sebelumnya dan tertutup. Ini penting karena salah satu tujuan penelitian Heider adalah menjelajahi batas-batas ranah emosi itu sendiri.</li>
+                    <li><strong>Bisa Dipakai untuk Hal Lain:</strong> Peta ini bukan cuma hasil akhir, tapi juga alat. Dia bisa pakai peta ini untuk menginterpretasikan tanggapan terhadap tugas-tugas lain, seperti saat subjek menggambarkan emosi dalam cuplikan film komersial. Peta ini berfungsi sebagai "kamus super" yang menunjukkan makna dan apakah dua kata adalah sinonim dekat atau merujuk pada gugusan yang berbeda.</li>
+                    <li>Peta jaringan memberikan otoritas untuk pernyataan tentang elaborasi atau kelangkaan leksikal dalam bahasa yang berbeda.</li>
+                </ul>
+                <p class="mb-4 text-lg">Heider menyebut representasi visual hubungan antar kata emosi dalam bahasa sebagai **"peta kognitif" atau "peta leksikal"**. Ia berpendapat bahwa emosi bukanlah objek, dan pengelompokan istilah emosi ini adalah penstrukturan ranah tersebut tetapi tidak selalu "kategori".</p>
+            </div>
+        </section>
+
+        <section id="ringkasan-bab2" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Ringkasan Bab 2</h2>
+                <p class="mb-4 text-lg">Singkatnya, Bab 2 ini menjelaskan bagaimana Heider membangun "peta kognitif" emosi. Ini adalah bagian di mana dia menjadi seorang "kartografer" (pembuat peta) dari pikiran manusia, menggunakan kata-kata sebagai "titik-titik" di petanya. Dia tidak hanya mengandalkan terjemahan kamus, tapi langsung bertanya kepada penutur asli untuk mengetahui bagaimana mereka secara intuitif mengelompokkan dan menghubungkan kata-kata emosi dalam bahasa mereka sehari-hari.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            @2025 Komunitas Titian Akal Budi Yogyakarta (Inyiak Ridwan Muzir)
+        </footer>
+    </main>
+
+    <script>
+        function showSection(sectionId, event) {
+            // Deactivate all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Activate the target content section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) { 
+                targetSection.classList.add('active');
+            } else {
+                console.error(`Section with ID '${sectionId}' not found.`);
+                return; 
+            }
+
+            // Deactivate all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active-nav');
+            });
+
+            // Find and activate the corresponding nav link using data-section-id
+            const navLinkToActivate = document.querySelector(`.nav-link[data-section-id="${sectionId}"]`);
+            if (navLinkToActivate) { 
+                navLinkToActivate.classList.add('active-nav');
+            } else {
+                console.error(`Navigation link for section '${sectionId}' not found.`);
+            }
+
+            // If this function was called by a click event, update the URL hash
+            if (event && event.currentTarget) {
+                window.location.hash = sectionId; 
+            }
+        }
+        
+        // Set initial active section based on URL hash or default to intro-page-bab2
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            const sections = [
+                'intro-page-bab2', 'kumpulkan-kata-emosi', 'saring-daftar', 'bangun-peta', 
+                'mengapa-unik', 'ringkasan-bab2'
+            ];
+            
+            let initialSectionId = 'intro-page-bab2'; 
+            if (hash && sections.includes(hash)) {
+                initialSectionId = hash;
+            }
+            
+            showSection(initialSectionId, null); 
+        });
+    </script>
+</body>
+</html>

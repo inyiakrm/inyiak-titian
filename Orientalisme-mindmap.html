@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edward Said's Orientalism: Structure and Critical Notes</title>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            width: 95%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+        .controls {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #357ABD;
+        }
+        
+        /* Tree Diagram Styles */
+        .tree {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .tree ul {
+            list-style-type: none;
+            padding-left: 0; 
+            margin: 0;
+        }
+        .tree li {
+            position: relative;
+            margin: 10px 0;
+        }
+        /* Garis vertikal dan horizontal untuk konektor tree */
+        .tree li:before {
+            content: "";
+            position: absolute;
+            left: -15px;
+            top: 15px; 
+            width: 15px;
+            height: 1px;
+            background-color: #ccc;
+        }
+        .tree li:after {
+            content: "";
+            position: absolute;
+            left: -15px;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background-color: #ccc;
+        }
+        .tree li:last-child:after {
+            height: 15px;
+        }
+
+        .tree .node {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .tree .node:hover {
+            background-color: #f0f4f8;
+        }
+        .tree .node-main {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .tree .node-root {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #4a90e2;
+            background-color: #f0f4f8;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .tree .toggle {
+            margin-right: 10px;
+            color: #4a90e2;
+            font-weight: bold;
+            width: 20px;
+            text-align: center;
+            pointer-events: auto; 
+            flex-shrink: 0; 
+        }
+        
+        /* Gaya untuk konten yang di-toggle (kutipan dan children) */
+        .tree .expandable-content {
+            margin-left: 30px; 
+            border-left: 1px dashed #ddd; 
+            padding-left: 15px; 
+            padding-top: 5px; 
+        }
+        .tree .hidden {
+            display: none;
+        }
+
+        /* Gaya untuk kutipan */
+        .tree .node-quote {
+            font-style: italic;
+            color: #555;
+            margin: 10px 0 10px 0; /* Ubah margin-bottom jadi 10px agar ada spasi ke komentar kritis */
+            text-align: justify;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        /* Gaya baru untuk komentar kritis */
+        .tree .critical-comment {
+            color: #d9534f; /* Warna merah */
+            font-weight: 500; /* Sedikit lebih tebal */
+            margin: 0 0 15px 0; /* Margin atas 0, margin bawah 15px untuk spasi ke sub-node */
+            padding-left: 5px; /* Sedikit indentasi dari kutipan */
+            border-left: 2px solid #d9534f; /* Garis merah di kiri */
+            padding-left: 10px;
+            line-height: 1.5;
+            font-size: 0.9em;
+            text-align: justify;
+        }
+
+        /* Pastikan child UL tidak memiliki border-left atau padding-left tambahan */
+        .tree .children ul {
+            padding-left: 0; 
+            border-left: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>"<em>Orientalism</em>-nya Edward Said": Poin-poin Pengantar</h1>
+        
+        <div class="controls">
+            <button id="expandAll">Serak'an</button>
+            <button id="collapseAll">Kamehi</button>
+        </div>
+        
+        <div class="tree" id="diagram">
+            </div>
+    </div>
+
+    <script>
+        // Data struktur diagram
+        const diagramData = {
+            name: "Edward Said's Orientalism",
+            type: "root",
+            children: [
+                {
+                    name: "Apa itu Orientalisme?",
+                    children: [
+                        { 
+                            name: "Disiplin Akademik", 
+                            children: [
+                                { name: "Siapa pun yang meneliti 'Timur' adalah Orientalis" },
+                                { name: "Doktrin & tesisnya tetap hidup" }
+                            ]
+                        },
+                        { 
+                            name: "Gaya Berpikir",
+                            children: [
+                                { name: "Pembedaan ontologis & epistemologis 'Timur'/'Barat'" },
+                                { name: "Basis bagi narasi kompleks ttg Orient" }
+                            ]
+                        },
+                        { 
+                            name: "Institusi Korporat/Diskursus Kekuasaan",
+                            children: [
+                                { name: "Gaya Barat mendominasi, merestrukturisasi Orient" },
+                                { name: "Diskursus memproduksi Orient secara politis, ilmiah, dll." },
+                                { name: "Pengetahuan tak apolitis, terinfus kekuasaan" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Mengidentifikasi & Membongkar Orientalisme",
+                    children: [
+                        { 
+                            name: "Kritik Asumsi Epistemologis",
+                            children: [
+                                { name: "Pengetahuan bukan murni/non-politis" },
+                                { name: "Van Eerde: Pengamat 'netral' dari posisi kolonial" },
+                                { name: "Heider: Metodologi 'canggih' juga perlu diinterogasi" }
+                            ]
+                        },
+                        { 
+                            name: "Analisis Nexus Kekuasaan-Pengetahuan",
+                            children: [
+                                { name: "Hubungan Orient-Occident: Kekuasaan, dominasi" },
+                                { name: "Van Eerde: Otoritas kolonial membentuk pengetahuan" },
+                                { name: "Heider: Dukungan Barat, pengajaran 'versi Amerika'" }
+                            ]
+                        },
+                        { 
+                            name: "Menantang Generalisasi & Stereotip",
+                            children: [
+                                { name: "Said kritik 'generalisasi merendahkan & klise triumfalistik'" },
+                                { name: "Van Eerde: 'Anak-anak naif', 'tingkat peradaban rendah'" },
+                                { name: "Heider: Mengatasi generalisasi, tapi tetap ada framing" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Dampak Pengetahuan Orientalis",
+                    children: [
+                        { 
+                            name: "Internalisasi Kategori & Standar Barat",
+                            children: [
+                                { name: "Orient dinilai dgn standar Barat" },
+                                { name: "Van Eerde: Penilaian puisi 'naif' berdasarkan kriteria Eropa" },
+                                { name: "Dampak pasca-kemerdekaan: Akademisi lokal adopsi kerangka Barat" }
+                            ]
+                        },
+                        { 
+                            name: "Pembentukan 'Ahli' Lokal & Kolaborasi Intelektual",
+                            children: [
+                                { name: "Orientalisme ciptakan 'pakar' Oriental" },
+                                { name: "Said kritik 'pakar' yang 'mengkhianati panggilan mereka'" },
+                                { name: "Heider: Akademisi Barat sbg arbitrer 'otoritas intelektual'" }
+                            ]
+                        },
+                        { 
+                            name: "Pengaruh Bahasa & Terminologi",
+                            children: [
+                                { name: "Diskursus dgn 'kosakata, beasiswa, citra'" },
+                                { name: "Heider: 'Blue shift' & 'red shift' dlm emosi" },
+                                { name: "Terminologi akademik membawa jejak konseptual Orientalis" }
+                            ]
+                        },
+                        { 
+                            name: "Hegemoni Budaya & 'Keterlambatan' Lokal",
+                            children: [
+                                { name: "Gagasan superioritas Eropa" },
+                                { name: "Van Eerde: Minangkabau 'tingkat peradaban rendah'" },
+                                { name: "Dampak pasca-kemerdekaan: Kebutuhan 'membuktikan' kemajuan" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Dekolonisasi Pengetahuan & Fondasi Said",
+                    children: [
+                        { 
+                            name: "Mengungkap Nexus Pengetahuan-Kekuasaan",
+                            children: [
+                                { name: "Pengetahuan terjalin dgn kekuasaan & kepentingan" },
+                                { name: "Van Eerde: Kekuasaan kolonial membentuk pengetahuan Minangkabau" },
+                                { name: "Heider: Metodologi ilmiah dlm 'jaringan kepentingan'" }
+                            ]
+                        },
+                        { 
+                            name: "Menantang Eksterioritas & Menegaskan Agensi",
+                            children: [
+                                { name: "Orient tdk dpt wakili diri, hrs diwakili" },
+                                { name: "Van Eerde: Publikasi 'padato' tanpa persetujuan subjek" },
+                                { name: "Heider: Upaya kumpulkan data dr informan lokal, namun ada framing" }
+                            ]
+                        },
+                        { 
+                            name: "Memperluas & Merelativisasi 'Kanon' Pengetahuan",
+                            children: [
+                                { name: "Menantang kanon & universalisme Barat" },
+                                { name: "Van Eerde: Terapkan standar Eropa pada puisi Minangkabau" },
+                                { name: "Heider: Menantang universalitas, namun masih dlm kerangka Barat" }
+                            ]
+                        },
+                        { 
+                            name: "Mendorong Humanisme Kritis & Dialog Egaliter",
+                            children: [
+                                { name: "Humanisme: Pahami sejarah, rasional, komunitas" },
+                                { name: "Said advokasi 'kerja sama budaya yg tumpang tindih'" },
+                                { name: "Van Eerde: Batasan artifisial dlm pemahaman" },
+                                { name: "Heider: Niat dialog, tapi Said dorong 'penciptaan bersama'" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Representasi Diri",
+                    children: [
+                        { 
+                            name: "Mengambil Kembali Otoritas Naratif & Epistemologis",
+                            children: [
+                                { name: "Timur sbg subjek aktif, bukan objek" },
+                                { name: "Van Eerde: Suara lokal diwakili & dikategorikan pihak luar" },
+                                { name: "Said: 'Menginventarisasi jejak' pada diri sbg 'Oriental'" }
+                            ]
+                        },
+                        { 
+                            name: "Mengkritisidan Mendekonstruksi Kategori Barat",
+                            children: [
+                                { name: "Interogasi asal, asumsi, batas kategori Barat" },
+                                { name: "Heider: Kategori emosi Barat (surprise, guilt) vs. realitas lokal" }
+                            ]
+                        },
+                        { 
+                            name: "Memanfaatkan Posisi 'Hybrid' utk Kritik & Inovasi",
+                            children: [
+                                { name: "Posisi 'Out of Place' sbg kekuatan analitis unik" },
+                                { name: "Menjadi 'penerjemah' kritis yg menyoroti dinamika kuasa" }
+                            ]
+                        },
+                        { 
+                            name: "Membangun Jaringan Pengetahuan Otonom & Egaliter",
+                            children: [
+                                { name: "Kurangi ketergantungan pd validasi/pendanaan Barat" },
+                                { name: "Bentuk 'komunitas interpretasi alternatif'" },
+                                { name: "Tuntut kemitraan setara dlm kolaborasi internasional" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Fungsi untuk membuat elemen tree node
+        function createTreeNode(nodeData, parentElement) {
+            const li = document.createElement("li");
+            const nodeDiv = document.createElement("div");
+            nodeDiv.className = `node ${nodeData.type === "root" ? "node-root" : "node-main"}`;
+            
+            const expandableContent = document.createElement("div");
+            expandableContent.className = "expandable-content hidden";
+
+            if ((nodeData.children && nodeData.children.length > 0) || nodeData.quote || nodeData.criticalComment) {
+                const toggle = document.createElement("span");
+                toggle.className = "toggle";
+                toggle.textContent = "+";
+                toggle.addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    toggleNode(this);
+                });
+                nodeDiv.appendChild(toggle);
+            }
+            
+            const nodeText = document.createElement("span");
+            nodeText.textContent = nodeData.name;
+            nodeDiv.appendChild(nodeText);
+            
+            nodeDiv.addEventListener("click", function(e) {
+                if ((nodeData.children && nodeData.children.length > 0) || nodeData.quote || nodeData.criticalComment) {
+                    const toggle = this.querySelector(".toggle");
+                    if (toggle && e.target !== toggle) { 
+                        toggleNode(toggle);
+                    }
+                }
+            });
+            
+            li.appendChild(nodeDiv);
+
+            if (nodeData.quote) {
+                const quoteParagraph = document.createElement("p");
+                quoteParagraph.className = "node-quote"; 
+                quoteParagraph.textContent = nodeData.quote;
+                expandableContent.appendChild(quoteParagraph); 
+            }
+
+            if (nodeData.criticalComment) {
+                const commentParagraph = document.createElement("p");
+                commentParagraph.className = "critical-comment"; 
+                commentParagraph.textContent = nodeData.criticalComment;
+                expandableContent.appendChild(commentParagraph); 
+            }
+
+            if (nodeData.children && nodeData.children.length > 0) {
+                const childrenUl = document.createElement("ul");
+                childrenUl.className = "children"; 
+                
+                nodeData.children.forEach(child => {
+                    createTreeNode(child, childrenUl);
+                });
+                
+                expandableContent.appendChild(childrenUl); 
+            }
+
+            if ((nodeData.children && nodeData.children.length > 0) || nodeData.quote || nodeData.criticalComment) {
+                li.appendChild(expandableContent); 
+            }
+            
+            parentElement.appendChild(li);
+        }
+
+        // Fungsi untuk toggle node individual
+        function toggleNode(toggleElement) {
+            const expandableContent = toggleElement.parentElement.nextElementSibling; 
+
+            if (expandableContent && expandableContent.classList.contains("expandable-content")) {
+                if (expandableContent.classList.contains("hidden")) {
+                    expandableContent.classList.remove("hidden");
+                    toggleElement.textContent = "-";
+                } else {
+                    expandableContent.classList.add("hidden");
+                    toggleElement.textContent = "+";
+                }
+            }
+        }
+
+        // Fungsi untuk expand all nodes
+        function expandAllNodes() {
+            document.querySelectorAll(".expandable-content").forEach(content => {
+                content.classList.remove("hidden");
+            });
+            document.querySelectorAll(".toggle").forEach(toggle => {
+                toggle.textContent = "-";
+            });
+        }
+
+        // Fungsi untuk collapse all nodes
+        function collapseAllNodes() {
+            document.querySelectorAll(".expandable-content").forEach(content => {
+                content.classList.add("hidden");
+            });
+            document.querySelectorAll(".toggle").forEach(toggle => {
+                toggle.textContent = "+";
+            });
+        }
+
+        // Inisialisasi diagram
+        function initDiagram() {
+            const diagramContainer = document.getElementById("diagram");
+            const ul = document.createElement("ul");
+            createTreeNode(diagramData, ul);
+            diagramContainer.appendChild(ul);
+            
+            // Set awal ke collapsed state
+            collapseAllNodes();
+        }
+
+        // Event listeners untuk tombol
+        document.getElementById("expandAll").addEventListener("click", expandAllNodes);
+        document.getElementById("collapseAll").addEventListener("click", collapseAllNodes);
+
+        // Jalankan saat halaman dimuat
+        window.addEventListener("DOMContentLoaded", initDiagram);
+    </script>
+</body>
+</html>

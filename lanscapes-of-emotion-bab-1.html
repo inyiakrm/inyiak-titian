@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Bab Buku: Landscapes of Emotion - Bab 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F5F5DC; color: #333333; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        .nav-link { 
+            cursor: pointer; 
+            padding: 8px 16px; 
+            margin-bottom: 8px; /* Menambahkan jarak antar poin navigasi */
+            border-radius: 8px; 
+            transition: background-color 0.3s; 
+            text-align: left; /* Membuat teks rata kiri */
+            display: block; /* Memastikan setiap link mengambil lebar penuh untuk rata kiri */
+        }
+        .nav-link:hover, .nav-link.active-nav { background-color: #D2B48C; color: #FFFFFF; } /* Coklat muda untuk hover/aktif */
+        .card { background-color: #FFFFFF; padding: 24px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); margin-bottom: 16px;}
+        /* Tooltip styles not needed for this simplified chapter, but kept for consistency if desired later */
+        .tooltip-interactive { position: relative; display: inline-block; border-bottom: 1px dotted #333333; cursor: pointer; color: #4A90E2; }
+        .tooltip-interactive .tooltiptext { visibility: hidden; width: 220px; background-color: #333333; color: #FFFFFF; text-align: center; border-radius: 6px; padding: 8px; position: absolute; z-index: 1; bottom: 125%; left: 50%; margin-left: -110px; opacity: 0; transition: opacity 0.3s; font-size: 0.875rem; }
+        .tooltip-interactive:hover .tooltiptext { visibility: visible; opacity: 1; }
+        h1, h2, h3, h4 { color: #2F4F4F; } /* Abu-abu gelap kebiruan untuk judul */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F5F5DC; }
+        ::-webkit-scrollbar-thumb { background: #8FBC8F; border-radius: 4px; } /* Hijau laut redam untuk scrollbar thumb */
+        ::-webkit-scrollbar-thumb:hover { background: #709a70; }
+        .list-circle { list-style-type: circle; } /* Added for circle list-style */
+        .footer { 
+            margin-top: 40px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ccc; 
+            text-align: center; 
+            color: #777; 
+            font-size: 0.9em; 
+        }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen">
+
+    <aside class="w-full md:w-64 bg-[#E6D8C0] p-6 shadow-lg md:sticky md:top-0 md:h-screen overflow-y-auto">
+        <h1 class="text-2xl font-bold mb-6 text-center">Navigasi Bab 1</h1>
+        <nav>
+            <ul>
+                <li><a class="nav-link active-nav" data-section-id="intro-page" onclick="showSection('intro-page', event)">Pengantar Bab 1</a></li>
+                <li><a class="nav-link" data-section-id="inti-masalah" onclick="showSection('inti-masalah', event)">Inti Masalah Heider</a></li>
+                <li><a class="nav-link" data-section-id="emosi-aliran-air" onclick="showSection('emosi-aliran-air', event)">Emosi: Aliran Air & Budaya</a></li>
+                <li><a class="nav-link" data-section-id="diri-vs-interaksi" onclick="showSection('diri-vs-interaksi', event)">Emosi: Diri Sendiri vs. Interaksi</a></li>
+                <li><a class="nav-link" data-section-id="budaya-dan-penelitian" onclick="showSection('budaya-dan-penelitian', event)">Budaya: Definisi & Penelitiannya</a></li>
+                <li><a class="nav-link" data-section-id="asumsi-penting" onclick="showSection('asumsi-penting', event)">Asumsi Penting Heider</a></li>
+                <li><a class="nav-link" data-section-id="mengapa-minangkabau" onclick="showSection('mengapa-minangkabau', event)">Mengapa Minangkabau?</a></li>
+                <li><a class="nav-link" data-section-id="ringkasan-bab1" onclick="showSection('ringkasan-bab1', event)">Ringkasan Bab 1</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+        <section id="intro-page" class="content-section active">
+            <div class="card mb-6">
+                <h2 class="text-3xl font-bold mb-4">Bab 1 <em>Lanscapes of Emotion</em></h2>
+                <p class="mb-4 text-lg">Bab ini adalah fondasi teoritis dan metodologis dari buku "Landscapes of Emotion" karya Karl G. Heider. Heider di sini bertindak sebagai seorang detektif, tetapi bukan detektif kriminal, melainkan detektif emosi dan budaya.</p>
+                <p class="mb-4 text-lg">Heider menjelaskan apa yang ingin dia cari dan kenapa dalam penelitiannya tentang emosi lintas budaya.</p>
+                <p class="text-md italic">Gunakan navigasi di sisi kiri untuk menjelajahi inti pembahasan Bab 1.</p>
+            </div>
+        </section>
+
+        <section id="inti-masalah" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Inti Masalah yang Ingin Dipecahkan Heider</h2>
+                <p class="mb-4 text-lg">Heider memulai bukunya dengan pertanyaan besar: <strong>"Bagaimana sih, budaya itu memengaruhi emosi kita?"</strong> </p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Kita tahu setiap bahasa punya kata-kata emosi yang beda-beda.  Tapi, apakah artinya sama persis?</li>
+                    <li>Seberapa banyak perilaku emosi kita yang sebenarnya dibentuk oleh budaya?  Dan seberapa banyak yang sama di mana-mana?</li>
+                    <li>Heider ingin tahu apakah orang di berbagai budaya bicara, berpikir, merasa, dan menunjukkan emosi dengan cara yang berbeda.  Misalnya, apakah jumlah kata emosi itu beda-beda di setiap budaya? </li>
+                    <li>Apakah ada emosi yang hanya ada di budaya tertentu?  Atau ada emosi yang ditekankan di satu budaya tapi diabaikan di budaya lain? </li>
+                    <li>Bahkan, apakah ekspresi wajah untuk emosi yang sama itu beda di tempat yang beda, dan mengapa? </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="emosi-aliran-air" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Emosi Itu Seperti Aliran Air yang Dipengaruhi Budaya</h2>
+                <p class="mb-4 text-lg">Heider mencoba melihat emosi bukan cuma sebagai satu hal tunggal, tapi seperti <strong>aliran air</strong> atau skenario dengan anteseden dan hasil.  Air ini mengalir dari penyebab (misalnya, anak meninggal) sampai ke hasil (misalnya, menangis).  Nah, di tengah aliran ini, budaya bisa ikut campur dua kali, seperti ada dua "saringan" atau "prisma":</p>
+                <h3 class="text-2xl font-semibold mb-2">1. Saringan Definisi Awal:</h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Budaya bisa memberi warna emosi pada sebuah kejadian melalui aturan budaya-spesifik yang menghasilkan keadaan batin emosional.  Misalnya, anak meninggal itu biasanya sedih,  tapi kalau di suatu budaya anak meninggal dianggap karena sihir, bisa jadi itu memicu amarah. Atau, kalau anak langsung ke surga, bisa jadi malah senang. </li>
+                </ul>
+                <h3 class="text-2xl font-semibold mb-2">2. Saringan Aturan Reaksi/Penampilan:</h3>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Aturan reaksi, atau aturan penampilan (display rules), dari budaya tersebut untuk emosi itu menentukan apakah emosi di keadaan batin diubah dalam penampilan publiknya melalui intensifikasi, pengurangan, netralisasi, atau penyamaran oleh perilaku (biasanya ekspresi wajah) emosi lain.  Contohnya, di Jawa setiap emosi harus ditutupi dengan senyuman. </li>
+                </ul>
+                <p class="mb-4 text-lg">Heider menyebut ini <strong>"aturan reaksi"</strong> atau <strong>"aturan penampilan" (display rules)</strong>.  Jadi, emosi itu ada bagian yang universal (sama di mana-mana, seperti kesedihan karena kehilangan), tapi ada juga bagian yang dibentuk oleh budaya. </p>
+            </div>
+        </section>
+
+        <section id="diri-vs-interaksi" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Apakah Emosi Itu Lebih Tentang Diri Sendiri atau Hubungan dengan Orang Lain?</h2>
+                <p class="mb-4 text-lg">Antropolog dan sejarawan telah lama menyadari bahwa dimensi penting yang membedakan budaya adalah penekanan relatif pada seseorang sebagai bagian interaktif dari jaringan sosial versus seseorang sebagai individu otonom.  Heider juga melihat ada perbedaan besar antar budaya dalam hal apakah emosi itu lebih fokus pada <strong>perasaan di dalam diri seseorang (inner states)</strong> atau <strong>interaksi dengan orang lain</strong>.  Budaya Barat cenderung fokus pada individu, sementara budaya Indonesia secara keseluruhan lebih fokus pada interaksi sosial.  Contoh gampangnya, di Indonesia pernikahan itu sering diatur keluarga, kalau di Eropa dan Amerika itu oleh kedua individu utama.  Namun, ini bukan aturan mutlak. </p>
+                <p class="mb-4 text-lg">Memikirkan dalam konteks kontinum keadaan batin-interaksi ini membantu menjelaskan banyak hal: mengapa perilaku Indonesia secara keseluruhan lebih berorientasi pada interaksi daripada perilaku Barat;  dan mengapa ada lebih banyak interaksi dalam perilaku emosi Minangkabau ketika mereka membicarakannya dalam bahasa Minangkabau dibandingkan ketika mereka membicarakannya dalam bahasa Indonesia. </p>
+            </div>
+        </section>
+
+        <section id="budaya-dan-penelitian" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Budaya Itu Apa Sih? Dan Gimana Cara Menelitinya?</h2>
+                <p class="mb-4 text-lg">Heider mendefinisikan budaya sebagai sesuatu yang **dipelajari, dibagikan, dan berisi gagasan tentang perilaku**.  Tapi dia sadar, budaya itu tidak selalu "dibagikan" secara sempurna oleh semua orang dalam satu kelompok, atau ada "incomplete cultural sharing".</p>
+                <p class="mb-4 text-lg">Untuk mengatasi dilema ini, tanpa membuang konsep budaya itu sendiri, Heider tidak hanya mengandalkan:</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Melihat pandangan satu orang saja atau pendekatan introspektif (karena orang bisa tidak konsisten dengan dirinya sendiri). </li>
+                    <li>Mencapai konsensus kelompok budaya (karena metodologi yang menghasilkan pernyataan seperti "orang X percaya bahwa..." jarang dijelaskan, dan bisa bias peneliti). </li>
+                    <li>Pemecahan kuantitatif dari variasi (memberikan informasi tentang perilaku, tetapi kurang tentang ideologi). </li>
+                </ul>
+                <p class="mb-4 text-lg">Sebaliknya, Heider menggunakan cara keempat: **"solusi peta komposit" (composite map solution)**.  Ini seperti membuat peta pikiran tentang kata-kata emosi, berdasarkan potongan data dari lima puluh informan Indonesia.  Jadi, peta ini bukan mewakili pikiran satu orang atau konsensus sempurna,  tapi lebih ke **titik temu atau pemahaman bersama** yang memungkinkan orang berkomunikasi.  Ini sangat penting karena Heider tahu terjemahan kata per kata itu tidak cukup. </p>
+            </div>
+        </section>
+
+        <section id="asumsi-penting" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Asumsi Penting Heider Sebelum Memetakan Emosi</h2>
+                <p class="mb-4 text-lg">Sebelum mulai "memetakan" emosi, Heider punya beberapa keyakinan dasar:</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Emosi itu punya sisi <strong>mental (kognitif)</strong> dan sisi <strong>fisik (fisiologis)</strong> yang bisa dilihat atau diukur (misalnya, kata-kata emosi, ekspresi wajah, reaksi tubuh, komunikasi nonverbal lainnya, reaksi fisiologis, dan tindakan perilaku nyata). </li>
+                    <li><strong>Kata-kata yang digunakan untuk emosi adalah data yang signifikan</strong>.  Meskipun ada perbedaan penting antara ucapan dan perilaku lain, serta pembicaraan tentang emosi mungkin tidak selalu menggunakan kata-kata untuk emosi, kosakata emosi adalah rute akses yang logis ke subjek emosi. </li>
+                    <li>Perilaku emosi adalah <strong>campuran antara perilaku pan-kultural dan budaya-spesifik</strong>.  Ini dibentuk oleh pengaruh pan-kultural (mungkin biologi umum spesies) dan norma budaya-spesifik. </li>
+                    <li>Karena pola budaya-spesifik ada dalam konteks pan-kultural, keduanya harus dipertimbangkan secara bersamaan. </li>
+                    <li>Tugas utama antropologi adalah mencari tahu <strong>peran pengaruh budaya-spesifik</strong> pada emosi. </li>
+                    <li>Pengaruh norma budaya dapat menghasilkan jenis reaksi perilaku yang sangat berbeda terhadap situasi dasar yang sama (misalnya, kematian seorang anak dapat didefinisikan secara budaya sebagai sumber kesedihan, kemarahan, atau kebahagiaan). </li>
+                    <li>Apa yang dalam bahasa Inggris dipahami sebagai ranah emosi, dan apa yang dipahami oleh kata-kata emosi bahasa Inggris tertentu, memiliki korespondensi umum dalam bahasa dan budaya lain. </li>
+                    <li>Namun, yang lebih penting: Baik ranah emosi maupun kata-kata tertentu untuk emosi dalam satu bahasa dan budaya <strong>tidak dapat diasumsikan secara *a priori* memiliki padanan persis</strong> dalam bahasa dan budaya lain.  Ini adalah sifat tak tentu dari emosi. </li>
+                    <li>Oleh karena itu, tugas antropologis adalah menentukan baik korespondensi maupun perbedaan antara dua budaya dalam ranah emosi dan kata-kata emosi mereka. </li>
+                    <li>Tidak ada parameter objektif ("etic") yang mendasari untuk menempatkan semua kata emosi dengan tepat.  Saat ini, untuk membuat perbandingan antar budaya atau bahasa, kita tidak dapat bergantung pada spesifikasi objektif. Sebaliknya, kita harus mengandalkan **penilaian intuitif penutur dwibahasa**, cerita-cerita etnografi yang kaya tentang anteseden dan hasil emosi, dan tanggapan terhadap stimulus standar (seperti ekspresi wajah). </li>
+                </ul>
+                <p class="mb-4 text-lg">Tugas pemetaan didasarkan pada asumsi bahwa penutur fasih suatu bahasa memiliki peta mental kata-kata bahasa tersebut,  di mana kata-kata tidak tersusun secara teratur seperti daftar tetapi berkelompok secara tidak teratur dalam kelompok-kelompok makna yang serupa,  dan peta-peta ini dapat direpresentasikan oleh diagram dua dimensi. </p>
+            </div>
+        </section>
+
+        <section id="mengapa-minangkabau" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Mengapa Memilih Minangkabau?</h2>
+                <p class="mb-4 text-lg">Heider memilih suku Minangkabau di Sumatera Barat sebagai lokasi penelitiannya karena beberapa alasan: </p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Meskipun Irian Jaya (lokasi penelitian Heider sebelumnya) ditutup untuk penelitian etnografi, Minangkabau tampak sebagai titik awal yang baik untuk studi emosi. </li>
+                    <li>Jumlah penelitian yang sudah ada tentang Minangkabau (sejarah, organisasi politik dan sosial, agama, tarian, sastra, kerajinan, migrasi)  memungkinkan Heider untuk langsung fokus pada isu-isu psikologis emosi, tanpa harus mengerjakan etnografi dasar budaya. </li>
+                    <li>Orang Minangkabau itu **dwibahasa** (Minangkabau dan Indonesia),  yang penting untuk membandingkan emosi dalam dua bahasa yang dipakai oleh orang yang sama.  Bahasa Minangkabau dan Indonesia cukup berbeda untuk menghasilkan kontras yang signifikan, namun cukup mirip sehingga tidak terlalu sulit untuk dipelajari keduanya. </li>
+                    <li>Orang Minangkabau dianggap lebih "kasar" atau lebih terbuka secara emosional dibandingkan orang Jawa.  Ini menjadi kontras menarik dengan Jawa yang sangat *halus* (menahan emosi). </li>
+                    <li>Novel-novel yang ditulis oleh orang Minangkabau dalam bahasa Indonesia sejak tahun 1920-an merupakan sumber data budaya yang berharga. </li>
+                    <li>Fakta bahwa semua Minangkabau pada dasarnya berbicara satu versi bahasa memperluas potensi jumlah subjek penelitian. </li>
+                    <li>Lokasi pegunungan Bukittinggi yang menyenangkan (sebuah kota kecil di jantung Sumatera Barat) memudahkan Heider untuk memindahkan keluarganya untuk kerja lapangan selama dua tahun. </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="ringkasan-bab1" class="content-section">
+            <div class="card">
+                <h2 class="text-3xl font-bold mb-4">Singkatnya, Bab 1 Ini Adalah "Peta Jalan" Heider</h2>
+                <p class="mb-4 text-lg">Heider menjelaskan pertanyaan utamanya, bagaimana dia membayangkan emosi itu bekerja, konsep budaya yang dia pakai, metode umumnya, dan mengapa dia memilih Minangkabau sebagai lokasi penelitiannya. Dia sadar betul bahwa memahami emosi di budaya lain itu butuh lebih dari sekadar kamus, butuh masuk ke dalam cara berpikir dan merasa orang-orang di sana.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            @2025 Komunitas Titian Akal Budi Yogyakarta (Inyiak Ridwan Muzir)
+        </footer>
+    </main>
+
+    <script>
+        function showSection(sectionId, event) {
+            // Deactivate all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Activate the target content section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) { 
+                targetSection.classList.add('active');
+            } else {
+                console.error(`Section with ID '${sectionId}' not found.`);
+                return; 
+            }
+
+            // Deactivate all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active-nav');
+            });
+
+            // Find and activate the corresponding nav link using data-section-id
+            const navLinkToActivate = document.querySelector(`.nav-link[data-section-id="${sectionId}"]`);
+            if (navLinkToActivate) { 
+                navLinkToActivate.classList.add('active-nav');
+            } else {
+                console.error(`Navigation link for section '${sectionId}' not found.`);
+            }
+
+            // If this function was called by a click event, update the URL hash
+            if (event && event.currentTarget) {
+                window.location.hash = sectionId; 
+            }
+        }
+        
+        // Set initial active section based on URL hash or default to intro-page
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            const sections = [
+                'intro-page', 'inti-masalah', 'emosi-aliran-air', 'diri-vs-interaksi',
+                'budaya-dan-penelitian', 'asumsi-penting', 'mengapa-minangkabau', 'ringkasan-bab1'
+            ];
+            
+            let initialSectionId = 'intro-page'; // Default section is now the new intro page
+            if (hash && sections.includes(hash)) {
+                initialSectionId = hash;
+            }
+            
+            showSection(initialSectionId, null); 
+        });
+    </script>
+</body>
+</html>
