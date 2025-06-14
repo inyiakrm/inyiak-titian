@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memetakan "Minang": Kritik Saidian terhadap Pemetaan Kognitif Emosi Karl G. Heider</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F5F5DC; color: #333333; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        .nav-link { 
+            cursor: pointer; 
+            padding: 8px 16px; 
+            margin-bottom: 8px;
+            border-radius: 8px; 
+            transition: background-color 0.3s; 
+            text-align: left;
+            display: block;
+        }
+        .nav-link:hover, .nav-link.active-nav { background-color: #D2B48C; color: #FFFFFF; }
+        .card { background-color: #FFFFFF; padding: 24px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); margin-bottom: 16px;}
+        .tooltip-interactive { position: relative; display: inline-block; border-bottom: 1px dotted #333333; cursor: pointer; color: #4A90E2; }
+        .tooltip-interactive .tooltiptext { visibility: hidden; width: 220px; background-color: #333333; color: #FFFFFF; text-align: center; border-radius: 6px; padding: 8px; position: absolute; z-index: 1; bottom: 125%; left: 50%; margin-left: -110px; opacity: 0; transition: opacity 0.3s; font-size: 0.875rem; }
+        .tooltip-interactive:hover .tooltiptext { visibility: visible; opacity: 1; }
+        h1, h2, h3, h4 { color: #2F4F4F; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F5F5DC; }
+        ::-webkit-scrollbar-thumb { background: #8FBC8F; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #709a70; }
+        .list-circle { list-style-type: circle; }
+        .footer { 
+            margin-top: 40px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ccc; 
+            text-align: center; 
+            color: #777; 
+            font-size: 0.9em; 
+        }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen">
+
+    <aside class="w-full md:w-64 bg-[#E6D8C0] p-6 shadow-lg md:sticky md:top-0 md:h-screen overflow-y-auto">
+        <h1 class="text-2xl font-bold mb-6 text-center">Navigasi</h1>
+        <nav>
+            <ul>
+                <li><a class="nav-link active-nav" data-section-id="pendahuluan" onclick="showSection('pendahuluan', event)">Pendahuluan</a></li>
+                <li><a class="nav-link" data-section-id="peta-emosi" onclick="showSection('peta-emosi', event)">Peta Emosi sebagai Ambisi Karl G. Heider</a></li>
+                <li><a class="nav-link" data-section-id="lensa-said" onclick="showSection('lensa-said', event)">Lensa Kritis Edward W. Said</a></li>
+                <li><a class="nav-link" data-section-id="peta-pengetahuan" onclick="showSection('peta-pengetahuan', event)">Peta Pengetahuan sebagai "Formasi Strategis"</a></li>
+                <li><a class="nav-link" data-section-id="dialektika" onclick="showSection('dialektika', event)">Dialektika Representasi</a></li>
+                <li><a class="nav-link" data-section-id="kesimpulan" onclick="showSection('kesimpulan', event)">Kesimpulan</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+        <section id="pendahuluan" class="content-section active">
+            <div class="card mb-6">
+                <h1 class="text-3xl font-bold mb-4">Memetakan "Minang": Sebuah Kritik Saidian terhadap "Pemetaan Kognitif" Emosi Karl G. Heider</h1>
+                <h2 class="text-2xl font-bold mb-4">Pendahuluan: Titik Temu Antara Empirisme dan Epistemologi Kekuasaan</h2>
+                <p class="mb-4">Studi lintas budaya, terutama dalam disiplin antropologi, selalu bergulat dengan sebuah tantangan fundamental: bagaimana memahami dan merepresentasikan dunia pengalaman budaya "Lain" tanpa secara tak sadar memaksakan kerangka kerja konseptual dan metodologis dari si peneliti? Pertanyaan ini menjadi titik persimpangan kritis antara dua upaya intelektual yang monumental namun berbeda secara diametral: penelitian empiris Karl G. Heider tentang lanskap emosi masyarakat Minangkabau di Indonesia, dan kritik postkolonial Edward W. Said dalam <em>Orientalism</em>.</p>
+                <p class="mb-4">Heider, dengan ketelitian seorang ilmuwan, berupaya memetakan dunia perasaan melalui apa yang ia sebut "pemetaan kognitif". Di sisi lain, Said, dengan ketajaman seorang kritikus sastra dan teori, membongkar bagaimana pengetahuan Barat tentang "Timur" diproduksi melalui "diskursus" dan "formasi strategis" yang sarat dengan kekuasaan.</p>
+                <p class="mb-4">Membaca karya Heider, <em>The Cultural Context of Emotion</em>, kita disuguhkan sebuah upaya ilmiah yang tulus dan cermat. Ia berusaha keras untuk menghindari generalisasi dangkal, mendasarkan analisisnya pada data yang kaya dari informan lokal, dan mengakui kompleksitas yang ada. Namun, dari perspektif Edward W. Said, ketulusan niat tidaklah cukup untuk melepaskan sebuah karya dari struktur kekuasaan-pengetahuan tempat ia diproduksi.</p>
+                <p class="mb-4">Said dalam <em>Orientalism</em> berargumen bahwa pengetahuan tentang "Lain" tidak pernah netral; ia selalu terikat pada sejarah, tradisi, dan institusi yang membentuknya. Esai ini akan berargumen bahwa meskipun "pemetaan kognitif" Karl G. Heider merupakan sebuah langkah maju dalam metodologi antropologis untuk memahami dunia emosional Minangkabau, dari perspektif Saidian, proyek ini tidak dapat dilihat sebagai penemuan fakta yang objektif. Sebaliknya, ia berfungsi sebagai praktik diskursif dan bagian dari formasi strategis Barat yang secara inheren menstrukturisasi, mengkonstruksi, dan pada akhirnya menegaskan otoritas epistemologis atas "Timur" yang dipelajarinya.</p>
+            </div>
+        </section>
+
+        <section id="peta-emosi" class="content-section">
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4">Peta Emosi sebagai Ambisi Karl G. Heider</h2>
+                
+                <h3 class="text-xl font-semibold mb-2">Melampaui Elegansi Menuju Kompleksitas</h3>
+                <p class="mb-4">Untuk dapat melontarkan kritik yang adil, penting untuk terlebih dahulu memahami secara mendalam ambisi dan metodologi proyek Karl G. Heider. Karyanya bukanlah sebuah catatan perjalanan impresionistis, melainkan sebuah usaha ilmiah yang terstruktur dengan tujuan yang jelas: untuk memetakan "ranah <em>perasaan</em>". Motivasi Heider berakar pada ketidakpuasannya terhadap pendekatan yang terlalu menyederhanakan. Dalam bab kesimpulannya, ia secara eksplisit merefleksikan pergeseran dalam pendekatannya sendiri, dari "elegansi" menuju "kompleksitas". Ia mengakui bahwa dalam penelitian sebelumnya (<em>Landscapes of Emotion</em>, 1991), ia cenderung "meringkas hasil kuesioner menjadi pernyataan yang semakin ringkas yang mencerminkan pendapat mayoritas, biasanya dengan membuang data yang berbeda".</p>
+                <p class="mb-4">Kesadaran inilah yang mendorongnya pada tahap penelitian kedua yang menjadi dasar buku <em>The Cultural Context of Emotion</em>. Ia beralih dari kuesioner jawaban singkat ke wawancara mendalam dan kelompok diskusi terfokus (<em>focus groups</em>) untuk menangkap kekayaan dan variasi dalam cara orang Minangkabau berbicara tentang emosi. Tujuannya adalah untuk memahami "konsep mental, atau skema" para informannya. Dengan memfokuskan penelitiannya pada kelompok yang relatif homogen—"Minangkabau paruh baya, kelas menengah dari satu kota, Bukittinggi"—Heider berharap dapat menghasilkan gambaran budaya yang lebih akurat dan bernuansa. Dalam semangat antropologi kognitif, Heider berusaha untuk memahami dunia dari sudut pandang <em>emic</em>—perspektif pribumi—sebelum menerjemahkannya ke dalam kerangka analisis <em>etic</em>. Ini adalah sebuah proyek yang didasari oleh penghormatan terhadap kekhususan budaya dan komitmen terhadap ketelitian empiris.</p>
+                
+                <h3 class="text-xl font-semibold mb-2">Metodologi "Pemetaan Kognitif": Sebuah Upaya Sistematisasi</h3>
+                <p class="mb-4">Pusat dari proyek Heider adalah metodologinya yang khas, yaitu "pemetaan kognitif". Ini adalah proses sistematis untuk menerjemahkan data linguistik dan konseptual yang kompleks menjadi sebuah representasi visual yang dapat diakses. Proses ini melibatkan beberapa langkah. Pertama, identifikasi kata-kata emosi dalam bahasa Indonesia dan Minangkabau. Kedua, melalui berbagai tugas penyortiran dan kuesioner, ia menganalisis bagaimana kata-kata ini berkelompok (misalnya, <em>marah</em>, <em>kesal</em>, dan <em>dendam</em> berada dalam klaster "kemarahan"). Ketiga, dengan menggunakan teknik statistik seperti <em>multidimensional scaling</em>, ia memetakan hubungan spasial antara klaster-klaster ini, menciptakan apa yang ia sebut sebagai "peta kognitif" yang menyerupai "peta bintang" (<em>star maps</em>). Peta ini memvisualisasikan kata-kata emosi mana yang dianggap "dekat" secara makna dan mana yang "jauh".</p>
+                <p class="mb-4">Dengan melakukan ini, Heider berupaya "memaksa semua hubungan kompleks ini ke lembaran kertas dua dimensi". Ia sadar bahwa ada "pertukaran yang jelas: informasi untuk aksesibilitas". Artinya, kerumitan yang tak terbatas dari pengalaman yang dihayati dikorbankan demi kejelasan analitis dan kemudahan klasifikasi. Bagi Heider, ini adalah pertukaran yang perlu dan dapat dibenarkan secara ilmiah. Peta tersebut, baginya, adalah representasi dari struktur kognitif internal para informannya. Namun, bagi seorang kritikus Saidian, tindakan "memaksa", "meringkas", dan "memetakan" inilah yang justru menjadi inti masalah, karena ia merepresentasikan sebuah tindakan kekuasaan epistemologis.</p>
+            </div>
+        </section>
+
+        <section id="lensa-said" class="content-section">
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4">Lensa Kritis Edward W. Said - Orientalisme sebagai Produksi Pengetahuan</h2>
+                
+                <h3 class="text-xl font-semibold mb-2">Diskursus: Kerangka yang Membentuk Realitas</h3>
+                <p class="mb-4">Edward W. Said, dalam karya seminalnya <em>Orientalism</em>, memperkenalkan sebuah cara pandang radikal terhadap produksi pengetahuan. Baginya, Orientalisme bukanlah sekadar kumpulan stereotip atau kebohongan tentang dunia Timur. Ia jauh lebih substansial dari itu; ia adalah sebuah "diskursus". Said mendefinisikannya sebagai "institusi korporat untuk berurusan dengan Orient—berurusan dengannya dengan membuat pernyataan tentangnya, mengesahkan pandangan tentangnya, mendeskripsikannya, dengan mengajarkannya, menempatinya, menguasainya: singkatnya, Orientalisme sebagai gaya Barat untuk mendominasi, merestrukturisasi, dan memiliki otoritas atas Orient".</p>
+                <p class="mb-4">Kekuatan diskursus ini terletak pada sifatnya yang sistematis dan meresap. Ia beroperasi melalui berbagai institusi—akademi, pemerintahan kolonial, masyarakat terpelajar—dan termanifestasi dalam beragam teks, mulai dari puisi hingga studi filologi, dari novel hingga laporan militer. Diskursus ini menciptakan sebuah jaringan pengetahuan yang begitu padat dan koheren sehingga menjadi sulit, bahkan mustahil, bagi siapa pun yang menulis atau berpikir tentang "Orient" untuk beroperasi di luarnya. Diskursus ini tidak hanya <em>merefleksikan</em> realitas; ia secara aktif <em>memproduksinya</em>. Ia menetapkan apa yang bisa dikatakan, siapa yang boleh berbicara, dan bagaimana sesuatu harus dipahami. Dengan demikian, "Orient" yang kita kenal melalui teks-teks Barat bukanlah entitas yang bebas, melainkan sebuah ciptaan yang dibentuk oleh lensa dan kategori yang disediakan oleh diskursus Orientalis.</p>
+                
+                <h3 class="text-xl font-semibold mb-2">Pemetaan Heider sebagai Praktik Diskursif</h3>
+                <p class="mb-4">Ketika lensa Saidian ini diterapkan pada proyek pemetaan kognitif Heider, sifat diskursif dari metodologinya menjadi jelas. Betapapun didasarkan pada data lokal, seluruh kerangka kerja Heider—mulai dari konsepsi awal hingga produk akhir—adalah bagian dari diskursus ilmiah Barat. Tindakan memilih "emosi" sebagai unit analisis, mengumpulkannya melalui "kuesioner", mengaturnya ke dalam "klaster", dan merepresentasikannya dalam "peta dua dimensi" adalah praktik-praktik yang berasal dari tradisi epistemologis Barat.</p>
+                <p class="mb-4">Peta Heider mengambil realitas pengalaman emosional Minangkabau yang liar, cair, dan dihayati, lalu menjinakkannya. Ia merestrukturisasi pengalaman tersebut menjadi sebuah objek studi yang stabil, terukur, dan dapat dikelola, yang kemudian dapat dikonsumsi dan dipahami oleh audiens Barat. Dalam proses ini, peta tersebut membuat dunia emosi Minangkabau menjadi "terlihat, jelas, 'ada' <em>dalam diskursus tentangnya</em>". Said berargumen bahwa pengetahuan semacam ini pada akhirnya lebih bergantung pada "berbagai teknik representasi Barat" daripada pada "Orient yang amorf dan jauh". Peta kognitif, dengan segala kejelasan dan keilmiahannya, adalah salah satu teknik representasi tersebut. Ia adalah sebuah instrumen yang, dengan mengklaim untuk menjelaskan, secara bersamaan juga menguasai dan mendefinisikan subjeknya sesuai dengan logikanya sendiri. Dengan demikian, peta Heider, dalam analisis Saidian, adalah sebuah produk diskursif yang, terlepas dari niat penelitinya, menegaskan kembali otoritas intelektual Barat untuk memetakan—dan dengan demikian, "memiliki"—dunia "Yang Lain".</p>
+            </div>
+        </section>
+
+        <section id="peta-pengetahuan" class="content-section">
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4">Peta Pengetahuan sebagai "Formasi Strategis"</h2>
+                
+                <h3 class="text-xl font-semibold mb-2">Membangun Otoritas Melalui Jaringan Tekstual</h3>
+                <p class="mb-4">Analisis Saidian tidak berhenti pada level diskursus. Kekuatan karya Heider dan sejenisnya juga terletak pada bagaimana ia berfungsi sebagai 'formasi strategis' yang memperkokoh otoritas pengetahuan Barat. Said memperkenalkan konsep ini untuk menganalisis "hubungan antara teks-teks dan cara di mana kelompok-kelompok teks, jenis-jenis teks, bahkan genre-genre tekstual, memperoleh massa, kepadatan, dan kekuatan referensial di antara mereka sendiri dan setelahnya dalam budaya yang lebih luas". Otoritas sebuah teks tidak lahir dari ruang hampa; ia dibentuk, diperkuat, dan didistribusikan melalui afiliasinya dengan teks-teks lain, dengan institusi (seperti universitas dan penerbit bergengsi), dan dengan audiens yang menerimanya.</p>
+                <p class="mb-4">Peta kognitif Heider, setelah diterbitkan dalam sebuah monograf akademik, berhenti menjadi sekadar hasil penelitian individu dan bertransformasi menjadi sebuah teks otoritatif. Ia memasuki kanon studi antropologi tentang Indonesia. Sebagai sebuah teks yang "ilmiah", ia dapat dikutip, direferensikan, dan digunakan sebagai landasan bagi penelitian selanjutnya oleh sarjana-sarjana lain. Setiap kutipan memperkuat statusnya, menambah "massa dan kepadatan" referensialnya. Ia menjadi bagian dari apa yang oleh Said sebut sebagai "kekuatan rajutan wacana Orientalis yang erat" (<em>the sheer knitted-together strength of Orientalist discourse</em>). Kekuatan dan daya tahan wacana ini justru berasal dari kemampuannya untuk saling merujuk dan saling mengesahkan, menciptakan sebuah sistem pengetahuan yang tampak kokoh dan tak tertembus. Karya Heider, dengan demikian, bukan lagi sekadar interpretasi, melainkan telah menjadi "fakta" tekstual dalam arsip pengetahuan Barat tentang Timur, memperkuat klaim Barat untuk memahami dan merepresentasikan dunia non-Barat.</p>
+            </div>
+        </section>
+
+        <section id="dialektika" class="content-section">
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4">Dialektika Representasi - Produksi versus Penemuan</h2>
+                
+                <h3 class="text-xl font-semibold mb-2">Ilusi Penemuan dan Realitas Produksi</h3>
+                <p class="mb-4">Inti dari kritik Saidian terhadap proyek-proyek seperti milik Heider terletak pada pertentangan fundamental antara <em>penemuan</em> (<em>discovery</em>) dan <em>produksi</em> (<em>production</em>). Postur ilmiah yang diadopsi Heider, dengan metodologi kuantitatif dan visualisasinya, menyiratkan sebuah tindakan penemuan—seolah-olah ia sedang menyingkap struktur kognitif objektif yang memang ada di benak orang Minangkabau, menunggu untuk dipetakan. Namun, Said akan berargumen dengan keras bahwa semua pengetahuan tentang "Orient" adalah sebuah produksi, sebuah konstruksi. "Orient," tulis Said, "bukanlah fakta alam yang inert... ia adalah sebuah ide yang memiliki sejarah dan tradisi pemikiran, citra, dan kosakata yang telah memberinya realitas dan kehadiran di dalam dan untuk Barat."</p>
+                <p class="mb-4">Heider sendiri, mungkin tanpa sadar, memberikan amunisi bagi kritik ini. Pengakuannya bahwa metodologinya "memaksa semua hubungan kompleks ini ke lembaran kertas dua dimensi" adalah sebuah pengakuan atas tindakan produksi. Kata "memaksa" menyiratkan sebuah tindakan kekuasaan, sebuah intervensi yang membentuk ulang subjeknya agar sesuai dengan medium representasi. Said akan menafsirkan ini sebagai manifestasi dari "kehendak atau niat untuk memahami, dalam beberapa kasus untuk mengontrol, memanipulasi, bahkan untuk menggabungkan, apa yang merupakan dunia yang secara nyata berbeda". Metode Heider, dengan demikian, adalah "cara untuk mendapatkan kendali atasnya [Orient], cara untuk tidak dikalahkan atau diliputi oleh keagungannya". Kompleksitas emosi Minangkabau yang mungkin "meluap-luap" berhasil "dikandung" dan dijinakkan dalam kerangka klasifikasi Barat yang rapi dan teratur.</p>
+                
+                <h3 class="text-xl font-semibold mb-2">Kebenaran vs. Representasi: Kekuatan Simbolis Peta</h3>
+                <p class="mb-4">Lebih lanjut, Said berpendapat bahwa apa yang umum diedarkan oleh diskursus budaya bukanlah "kebenaran" dalam pengertian absolut, melainkan "representasi". Heider menghasilkan "representasi visual hubungan antar kata-kata emosi". Pertanyaan krusial yang akan diajukan Said adalah: sejauh mana representasi ini, meskipun didasarkan pada data empiris, tetap berfungsi sebagai "presensi bagi pembaca berdasarkan pengecualiannya, penggantiannya, atau penggandaannya terhadap hal nyata seperti 'Orient'"? Peta kognitif Heider menjadi lebih nyata, lebih mudah diakses, dan pada akhirnya lebih berpengarih bagi seorang mahasiswa atau sarjana di Barat daripada pengalaman emosional yang hidup dan berantakan dari seorang individu Minangkabau.</p>
+                <p class="mb-4">Representasi tersebut, karena kejelasan dan otoritas ilmiahnya, berisiko menggantikan realitas yang coba digambarkannya. Ia menjadi sebuah realitas tersendiri. Kekuatan dari representasi inilah yang menjadi inti dari dominasi budaya. "Orientalisme," tegas Said, "membuat akal sehat sama sekali lebih bergantung pada Barat daripada pada Orient". Hal ini mungkin juga berlaku untuk pemetaan kognitif Heider. Logika peta, kategori-kategorinya, dan hubungan spasialnya menjadi cara yang dominan untuk memahami emosi Minangkabau, menyingkirkan cara-cara pemahaman lain yang mungkin lebih cair, naratif, atau metaforis, yang mungkin lebih dekat dengan pengalaman <em>emic</em> itu sendiri.</p>
+            </div>
+        </section>
+
+        <section id="kesimpulan" class="content-section">
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4">Kesimpulan: Kekuasaan Intelektual dan Tanggung Jawab Etnografis</h2>
+                <p class="mb-4">Secara keseluruhan, proyek "pemetaan kognitif" Karl G. Heider merupakan sebuah pencapaian antropologis yang signifikan, yang menawarkan wawasan yang lebih bernuansa ke dalam dunia emosional Minangkabau dibandingkan banyak karya sebelumnya. Namun, ketika dianalisis melalui kerangka kritis Edward W. Said, proyek ini tidak dapat lolos dari politik representasi yang melekat dalam setiap upaya untuk memahami "Yang Lain". Dilihat dari lensa Saidian, karya Heider berfungsi baik sebagai <em>praktik diskursif</em> yang membentuk realitas melalui kategori-kategori Barat, maupun sebagai <em>formasi strategis</em> yang memperoleh dan memperkuat otoritasnya dalam jaringan pengetahuan Barat yang lebih luas.</p>
+                <p class="mb-4">Penting untuk menggarisbawahi bahwa kritik ini bukanlah serangan terhadap niat atau integritas pribadi Heider. Sebaliknya, ini adalah kritik struktural terhadap apa yang oleh Said disebut hegemoni budaya Barat, sebuah sistem pengetahuan yang begitu kuat sehingga bahkan sarjana yang paling teliti dan beritikad baik pun kesulitan untuk beroperasi di luarnya. Justru karena kecanggihan dan ketelitian metodologis Heiderlah karyanya menjadi contoh yang begitu kuat tentang bagaimana Orientalisme modern bekerja—bukan melalui stereotip kasar, tetapi melalui aparatus ilmiah yang mengklaim objektivitas.</p>
+                <p class="mb-4">Implikasinya bagi antropologi dan studi lintas budaya sangat mendalam. Kritik Saidian menuntut adanya kesadaran diri yang radikal dari para peneliti. Ia memaksa kita untuk terus-menerus mempertanyakan kategori-kategori kita sendiri, metode kita, dan dinamika kekuasaan yang tak terhindarkan dalam hubungan antara peneliti dan yang diteliti. Sebagaimana Gramsci menyarankan, titik awal dari elaborasi kritis adalah "kesadaran tentang siapa diri kita sebenarnya... sebagai produk dari proses sejarah hingga saat ini". Bagi seorang sarjana Barat yang mempelajari "Timur", inventaris ini harus mencakup pengakuan atas posisi mereka dalam sejarah dominasi budaya dan intelektual.</p>
+                <p class="mb-4">Tugas ke depan bukanlah untuk meninggalkan upaya studi lintas budaya, karena hal itu akan membawa kita pada isolasionisme yang berbahaya. Sebaliknya, tantangannya adalah untuk mengejarnya dengan kesadaran kritis yang baru, untuk terus-menerus mencari cara-cara representasi yang lebih etis, dialogis, dan menghargai otonomi subjek. Ini adalah upaya untuk, seperti yang dikatakan Raymond Williams, secara aktif "melepaskan pembelajaran" dari "mode dominatif yang melekat" yang telah begitu lama mewarnai pertemuan Barat dengan dunia non-Barat. Pada akhirnya, warisan terpenting dari perjumpaan antara Heider dan Said adalah pengingat bahwa setiap peta pengetahuan juga merupakan peta kekuasaan.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            @2025 Komunitas Titian Akal Budi Yogyakarta (Inyiak Ridwan Muzir)
+        </footer>
+    </main>
+
+    <script>
+        function showSection(sectionId, event) {
+            // Deactivate all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Activate the target content section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) { 
+                targetSection.classList.add('active');
+            } else {
+                console.error(`Section with ID '${sectionId}' not found.`);
+                return; 
+            }
+
+            // Deactivate all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active-nav');
+            });
+
+            // Find and activate the corresponding nav link using data-section-id
+            const navLinkToActivate = document.querySelector(`.nav-link[data-section-id="${sectionId}"]`);
+            if (navLinkToActivate) { 
+                navLinkToActivate.classList.add('active-nav');
+            } else {
+                console.error(`Navigation link for section '${sectionId}' not found.`);
+            }
+
+            // If this function was called by a click event, update the URL hash
+            if (event && event.currentTarget) {
+                window.location.hash = sectionId; 
+            }
+        }
+        
+        // Set initial active section based on URL hash or default to intro-page
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            const sections = [
+                'pendahuluan', 'peta-emosi', 'lensa-said',
+                'peta-pengetahuan', 'dialektika', 'kesimpulan'
+            ];
+            
+            let initialSectionId = 'pendahuluan';
+            if (hash && sections.includes(hash)) {
+                initialSectionId = hash;
+            }
+            
+            showSection(initialSectionId, null); 
+        });
+    </script>
+</body>
+</html>
