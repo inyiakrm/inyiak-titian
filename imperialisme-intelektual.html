@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mindmap — Intellectual Imperialism (HTML / Editable)</title>
+<style>
+  :root{
+    --bg:#ffffff;
+    --panel:#f5f5f5;
+    --card:#ffffff;
+    --muted:#666666;
+    --accent:#1a73e8;
+    --accent-2:#0d47a1;
+    --glass: rgba(0,0,0,0.03);
+  }
+  html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#333333;}
+  .wrap{max-width:1200px;margin:20px auto;padding:18px;display:grid;grid-template-columns: 1fr;gap:18px;}
+  .card{background:var(--card);border-radius:8px;padding:14px;box-shadow: 0 2px 8px rgba(0,0,0,0.1);border:1px solid #e0e0e0;}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;}
+  h1{font-size:20px;margin:0;color:#333;}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;}
+  button{background:var(--glass);border:1px solid rgba(0,0,0,0.1);color:var(--muted);padding:8px 10px;border-radius:6px;cursor:pointer;font-weight:600;}
+  button.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border:none;box-shadow:0 2px 8px rgba(26,115,232,0.2);}
+  .small{font-size:13px;color:var(--muted)}
+  .mindmap-area{display:flex;gap:18px;align-items:flex-start;}
+  /* left: controls/info */
+  .left{flex:0.35;min-width:220px;}
+  .right{flex:1;min-width:360px;max-width:100%;}
+  /* List style */
+  .mindmap{
+    padding:12px;border-radius:8px;background:rgba(0,0,0,0.01);overflow:auto;
+    max-height:72vh;
+  }
+  ul{list-style: none;padding-left:18px;margin:6px 0;}
+  li{margin:6px 0;position:relative;padding-left:10px;}
+  /* marker */
+  li::before{
+    content: "•";
+    position:absolute;left:0;top:0;color:var(--accent);
+    font-size:14px;
+  }
+  .node-title{
+    display:inline-block;padding:6px 8px;border-radius:4px;
+    background:rgba(0,0,0,0.01);
+    cursor:text;font-weight:600;color:#333;
+  }
+  .node-desc{display:block;color:var(--muted);font-size:14px;padding:6px 12px;margin-top:6px;border-left:2px dashed rgba(0,0,0,0.05);}
+  .toggle-btn{
+    margin-left:10px;padding:2px 6px;border-radius:4px;background:transparent;border:1px solid rgba(0,0,0,0.1);color:var(--muted);cursor:pointer;font-size:12px;
+    width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;
+  }
+  .toggle-btn::after {
+    content: "−";
+    display:block;
+  }
+  .collapsed > ul{display:none;}
+  .collapsed > .toggle-btn::after {
+    content: "+";
+  }
+  .meta{margin-top:8px;font-size:13px;color:var(--muted);}
+  footer{margin-top:12px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center;}
+  /* editable highlight */
+  [contenteditable="true"]{outline:2px dashed rgba(26,115,232,0.2);padding:4px;border-radius:4px}
+  /* responsive */
+  @media (max-width:800px){
+    .mindmap-area{flex-direction:column;}
+    .left{order:2}
+    .right{order:1}
+  }
+  .search{display:flex;gap:8px;margin-bottom:8px;}
+  .search input{flex:1;padding:8px;border-radius:6px;border:1px solid rgba(0,0,0,0.1);background:transparent;color:var(--muted)}
+  .highlight {
+    background: linear-gradient(90deg, rgba(26,115,232,0.1), rgba(13,71,161,0.05)) !important;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <header>
+      <div>
+        <h1>Mindmap — <span style="color:#1a73e8">Intellectual Imperialism (Imperialisme Intelektual)</span></h1>
+        
+      </div>
+      <div class="controls">
+        <button id="expandAll" class="primary">Expand All</button>
+        <button id="collapseAll">Collapse All</button>
+        <button id="toggleEdit">Enable Edit</button>
+        <button id="download">Download HTML</button>
+      </div>
+    </header>
+
+    <div class="mindmap-area">
+      <aside class="left">
+        <div class="card" style="padding:10px;">
+          <div style="font-weight:700;color:#333">Panduan singkat</div>
+          <ul style="margin-top:8px;color:var(--muted);font-size:14px;">
+            <li>Gunakan <strong>Enable Edit</strong> untuk mengubah teks node.</li>
+            <li>Klik <strong>Expand All</strong> / <strong>Collapse All</strong> untuk buka/tutup semua sub-cabang.</li>
+            <li>Setiap node dengan anak memiliki tombol kecil di samping judul untuk mem-collapse tiap cabang secara individu.</li>
+            <li>Setelah selesai mengedit, tekan <strong>Download HTML</strong> untuk menyimpan versi yang diedit.</li>
+          </ul>
+          <div class="meta">File ini hanya struktur HTML — tidak ada gambar.</div>
+        </div>
+      </aside>
+
+      <main class="right card">
+        <div class="search">
+          <input id="findInput" placeholder="Cari teks di mindmap..." />
+          <button id="findBtn">Cari</button>
+          <button id="clearFind">Clear</button>
+        </div>
+
+        <!-- START: Mindmap HTML (nested ULs) -->
+        <nav class="mindmap" id="mindmapRoot" aria-label="Mindmap content">
+          <ul>
+            <li>
+              <span class="node-title" data-key="top">Imperialisme Intelektual / Intellectual Imperialism</span>
+              <div class="node-desc" data-key="top-desc" contenteditable="false">
+                Konsep dominasi intelektual: pengaruh kuat dari pusat-pusat ilmu (biasanya Barat) terhadap cara berpikir, agenda penelitian, praktik akademik, dan otoritas pengetahuan di wilayah lain.
+              </div>
+
+              <ul>
+                <!-- Definisi & Aspek -->
+                <li>
+                  <span class="node-title" data-key="def">Definisi &amp; Aspek</span>
+                  <button class="toggle-btn" aria-label="toggle"></button>
+                  <ul>
+                    <li><span class="node-title" data-key="def-1">Bukan hanya politik/ekonomi</span>
+                      <div class="node-desc" contenteditable="false">Fenomena yang melibatkan kerangka berpikir, kategori ilmu, dan otoritas epistemik.</div></li>
+                    <li><span class="node-title" data-key="def-2">Sebuah gagasan tentang manusia</span>
+                      <div class="node-desc" contenteditable="false">Bagaimana manusia dan masyarakat dipahami melalui lensa teori dominan.</div></li>
+                    <li><span class="node-title" data-key="def-3">Dominasi satu bangsa atas cara berpikir bangsa lain</span>
+                      <div class="node-desc" contenteditable="false">Termasuk standard setting ilmu, metode, dan topik prioritas.</div></li>
+                    <li><span class="node-title" data-key="def-4">Hasil dari imperialisme langsung/tidak langsung</span>
+                      <div class="node-desc" contenteditable="false">Baik akibat penjajahan politik maupun proses budaya/ekonomi pasca-kolonial.</div></li>
+                  </ul>
+                </li>
+
+                <!-- Masalah & Dampak -->
+                <li>
+                  <span class="node-title" data-key="prob">Masalah &amp; Dampak</span>
+                  <button class="toggle-btn" aria-label="toggle"></button>
+                  <ul>
+                    <li><span class="node-title" data-key="prob-1">Pengalihan perhatian dari isu relevan lokal</span>
+                      <div class="node-desc" contenteditable="false">Prioritas penelitian bergeser ke topik yang relevan bagi pusat ilmu.</div></li>
+                    <li><span class="node-title" data-key="prob-2">Menghambat ilmu sosial &amp; ekonomi lokal</span>
+                      <div class="node-desc" contenteditable="false">Metode dan teori asing tidak selalu cocok untuk konteks lokal.</div></li>
+                    <li><span class="node-title" data-key="prob-3">Mengikis kepercayaan diri ilmiah</span>
+                      <div class="node-desc" contenteditable="false">Akademisi lokal meragukan kapasitas pengetahuan sendiri.</div></li>
+                    <li><span class="node-title" data-key="prob-4">Mencekik kreativitas</span>
+                      <div class="node-desc" contenteditable="false">Keterbatasan dalam mengajukan pertanyaan orisinal dan solusi lokal.</div></li>
+                    <li><span class="node-title" data-key="prob-5">Kurangnya debat ilmiah lokal</span>
+                      <div class="node-desc" contenteditable="false">Topik dan data sering 'dieksport' untuk dinilai di luar.</div></li>
+                    <li><span class="node-title" data-key="prob-6">Ketergantungan meniru &amp; mencari pengakuan asing</span>
+                      <div class="node-desc" contenteditable="false">Akuntabilitas dan reputasi diukur berdasarkan validasi luar.</div></li>
+                    <li><span class="node-title" data-key="prob-7">Kekurangan semangat &amp; dana awal</span>
+                      <div class="node-desc" contenteditable="false">Sulit membangun tradisi ilmiah lokal tanpa dukungan berkelanjutan.</div></li>
+                  </ul>
+                </li>
+
+                <!-- Paralel: politik/ekonomi -->
+                <li>
+                  <span class="node-title" data-key="paralel">Paralel dgn Imperialisme Politik &amp; Ekonomi</span>
+                  <button class="toggle-btn" aria-label="toggle"></button>
+                  <ul>
+                    <li>
+                      <span class="node-title" data-key="exploit">Eksploitasi (data / bahan intelektual)</span>
+                      <div class="node-desc" contenteditable="false">
+                        Bahan/informasi dikumpulkan lokal → diproses di negara dominan → dijual kembali atau dipublikasikan tanpa manfaat setara bagi asal.
+                      </div>
+                    </li>
+                    <li>
+                      <span class="node-title" data-key="tutelage">Bimbingan / Tutelage</span>
+                      <button class="toggle-btn" aria-label="toggle"></button>
+                      <ul>
+                        <li><span class="node-title" data-key="tut-1">Ketergantungan intelektual pada Barat</span>
+                          <div class="node-desc" contenteditable="false">Menganggap Barat sebagai sumber metode dan kriteria kebenaran.</div></li>
+                        <li><span class="node-title" data-key="tut-2">Pergi belajar ke universitas asing</span>
+                          <div class="node-desc" contenteditable="false">Norma akademik lokal selanjutnya terformat ulang oleh pendidikan luar.</div></li>
+                        <li><span class="node-title" data-key="tut-3">Diposisi sebagai 'kurang tahu' secara epistemik</span>
+                          <div class="node-desc" contenteditable="false">Konteks lokal dipandang sebagai objek yang harus dijelaskan oleh teori asing.</div></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                      <span class="node-title" data-key="conform">Conformity (Konformitas)</span>
+                      <div class="node-desc" contenteditable="false">
+                        Harapan untuk mengikuti metode & topik asing; sedikit minat pada praktik/topik asli.
+                      </div>
+                    </li>
+
+                    <li>
+                      <span class="node-title" data-key="secondary">Peran Sekunder</span>
+                      <div class="node-desc" contenteditable="false">
+                        Akademisi lokal berfungsi sebagai pengumpul data / informan; kurang berada di posisi pengambil keputusan teoretis.
+                      </div>
+                    </li>
+
+                    <li>
+                      <span class="node-title" data-key="rationalize">Rasionalisasi / Misi Peradaban</span>
+                      <div class="node-desc" contenteditable="false">
+                        Narasi 'civilizing mission' meluas ke ranah ilmu sebagai pembenaran dominasi epistemik.
+                      </div>
+                    </li>
+
+                    <li>
+                      <span class="node-title" data-key="inferior">Penguasa Inferior (Stigma)</span>
+                      <div class="node-desc" contenteditable="false">
+                        Penilaian yang menempatkan pengetahuan non-Barat sebagai inferior atau kurang lengkap.
+                      </div>
+                    </li>
+
+                  </ul>
+                </li>
+
+                <!-- Perubahan Intelektual & Imitasi -->
+                <li>
+                  <span class="node-title" data-key="imitasi">Perubahan Intelektual &amp; Imitasi</span>
+                  <button class="toggle-btn" aria-label="toggle"></button>
+                  <ul>
+                    <li><span class="node-title" data-key="imit-1">Penerimaan tanpa kritik terhadap Barat</span>
+                      <div class="node-desc" contenteditable="false">Adopsi perspektif asing sebagai norma tanpa lokalisasi.</div></li>
+                    <li><span class="node-title" data-key="imit-2">Ketidakpercayaan pada latar belakang budaya sendiri</span>
+                      <div class="node-desc" contenteditable="false">Tradisi lokal dipandang kurang akademis.</div></li>
+                    <li><span class="node-title" data-key="imit-3">Kurangnya minat pada pemikir Asia / lokal masa lalu</span>
+                      <div class="node-desc" contenteditable="false">Sejarah pemikiran lokal diabaikan dalam kurikulum.</div></li>
+                    <li><span class="node-title" data-key="imit-4">Alienasi dari tradisi sendiri</span>
+                      <div class="node-desc" contenteditable="false">Krisis identitas intelektual akibat orientasi luar.</div></li>
+                    <li><span class="node-title" data-key="imit-5">Tren penulisan &amp; pilihan tema meniru</span>
+                      <div class="node-desc" contenteditable="false">Tema populer mengikuti agenda pusat ilmu, bukan kebutuhan lokal.</div></li>
+                    <li><span class="node-title" data-key="imit-6">Contoh historis</span>
+                      <button class="toggle-btn" aria-label="toggle"></button>
+                      <ul>
+                        <li><span class="node-title" data-key="case-1">Sejarah Singapura ditulis dari sudut pandang Raffles</span></li>
+                        <li><span class="node-title" data-key="case-2">Periodisasi sejarah India dipengaruhi orientalis</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- Komprador Intelektual -->
+                <li>
+                  <span class="node-title" data-key="comprador">Komprador Intelektual</span>
+                  <button class="toggle-btn" aria-label="toggle"></button>
+                  <ul>
+                    <li><span class="node-title" data-key="comp-1">Sarjana lokal sebagai kolaborator</span>
+                      <div class="node-desc" contenteditable="false">Mengumpulkan data & mendukung proyek yang dipimpin peneliti asing.</div></li>
+                    <li><span class="node-title" data-key="comp-2">Subkontrak riset dari sarjana asing</span>
+                      <div class="node-desc" contenteditable="false">Desain penelitian sering ditentukan dari luar.</div></li>
+                    <li><span class="node-title" data-key="comp-3">Data dikumpulkan lokal, diproses & dipublikasikan asing</span>
+                      <div class="node-desc" contenteditable="false">Nilai tambah intelektual ditarik keluar dari konteks asal.</div></li>
+                    <li><span class="node-title" data-key="comp-4">Kurangnya debat ilmiah lokal</span>
+                      <div class="node-desc" contenteditable="false">Proses peer-review dan publisitas sering dikontrol dari luar.</div></li>
+                  </ul>
+                </li>
+
+                <!-- Struktur pemikiran & contoh tokoh -->
+                <li>
+                  <span class="node-title" data-key="structure">Struktur Pemikiran &amp; Tokoh</span>
+                  <button class="toggle-btn" aria-label="toggle"></button>
+                  <ul>
+                    <li><span class="node-title" data-key="struct-1">Pilar: Non-western dianggap kurang kompeten</span>
+                      <div class="node-desc" contenteditable="false">Asumsi hierarki epistemik mempengaruhi penerimaan teori.</div></li>
+                    <li><span class="node-title" data-key="struct-2">Contoh tokoh / wacana</span>
+                      <button class="toggle-btn" aria-label="toggle"></button>
+                      <ul>
+                        <li><span class="node-title" data-key="tokoh-1">Albert Schweitzer — wacana misi 'civilizing'</span></li>
+                        <li><span class="node-title" data-key="tokoh-2">Raffles — narasi kolonial sejarah</span></li>
+                      </ul>
+                    </li>
+                    <li><span class="node-title" data-key="struct-3">Kritik pada generalisasi</span>
+                      <div class="node-desc" contenteditable="false">Perlu pemisahan antara partikular dan universal saat menerapkan teori.</div></li>
+                  </ul>
+                </li>
+
+                <!-- Captive Mind / Captive Mentality -->
+                <li>
+                  <span class="node-title" data-key="captive">Captive Mind (Pikiran Tertawan)</span>
+                  <button class="toggle-btn" aria-label="toggle"></button>
+                  <ul>
+                    <li><span class="node-title" data-key="cap-1">Bukan identik, tapi objek imperialisme intelektual</span></li>
+                    <li><span class="node-title" data-key="cap-2">Dibentuk sendiri (self-induced)</span></li>
+                    <li><span class="node-title" data-key="cap-3">Produk institusi pendidikan</span></li>
+                    <li><span class="node-title" data-key="cap-4">Menu &amp; diskriminasi pemikiran Barat secara tidak kritis</span></li>
+                    <li><span class="node-title" data-key="cap-5">Tidak kreatif; tidak mampu mengangkat masalah orisinal</span></li>
+                    <li><span class="node-title" data-key="cap-6">Tergantung pada stereotip</span></li>
+                    <li><span class="node-title" data-key="cap-7">Tidak mampu memisahkan partikular dari universal</span></li>
+                    <li><span class="node-title" data-key="cap-8">Contoh bidang yang terdampak</span>
+                      <button class="toggle-btn" aria-label="toggle"></button>
+                      <ul>
+                        <li><span class="node-title" data-key="ex-1">Sosiologi India — dikonstruksi oleh lensa kolonial</span></li>
+                        <li><span class="node-title" data-key="ex-2">Kolonialisasi ilmiah: John Galtung (kritik)</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- Kontinuitas Imperialisme -->
+                <li>
+                  <span class="node-title" data-key="continuity">Kontinuitas Imperialisme Intelektual</span>
+                  <button class="toggle-btn" aria-label="toggle"></button>
+                  <ul>
+                    <li><span class="node-title" data-key="cont-1">Bertahan setelah dekolonisasi politik</span></li>
+                    <li><span class="node-title" data-key="cont-2">Operasi dalam domain pluralistik Barat</span></li>
+                    <li><span class="node-title" data-key="cont-3">Merusak kepercayaan diri &amp; menyisipkan penilaian superior</span></li>
+                    <li><span class="node-title" data-key="cont-4">Belajar pada rasionalisasi/introjection sejarah Barat</span></li>
+                    <li><span class="node-title" data-key="cont-5">Contoh &amp; struktur</span>
+                      <button class="toggle-btn" aria-label="toggle"></button>
+                      <ul>
+                        <li><span class="node-title" data-key="cont-ex-1">Pandangan Albert Schweitzer dan justifikasi misi</span></li>
+                        <li><span class="node-title" data-key="cont-ex-2">Struktur penerimaan pemikiran imperialis</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- Emansipasi Intelektual -->
+                <li>
+                  <span class="node-title" data-key="emansipasi">Emansipasi Intelektual (Syarat &amp; Strategi)</span>
+                  <button class="toggle-btn" aria-label="toggle"></button>
+                  <ul>
+                    <li><span class="node-title" data-key="eman-1">Membangun tradisi ilmiah otonom &amp; kreatif</span>
+                      <div class="node-desc" contenteditable="false">Pengembangan agenda penelitian yang relevan dengan konteks lokal.</div></li>
+                    <li><span class="node-title" data-key="eman-2">Mengembalikan perhatian pada isu relevan lokal</span></li>
+                    <li><span class="node-title" data-key="eman-3">Mengembangkan individualitas &amp; kemandirian teoretis</span></li>
+                    <li><span class="node-title" data-key="eman-4">Mendorong debat &amp; publikasi lokal yang kuat</span></li>
+                    <li><span class="node-title" data-key="eman-5">Memiliki komunitas &amp; pendanaan untuk riset kontekstual</span></li>
+                    <li><span class="node-title" data-key="eman-6">Selektif terhadap konsep asing: kritik bukan penolakan</span></li>
+                    <li><span class="node-title" data-key="eman-7">Memiliki pemahaman konteks sosio-budaya &amp; historis</span></li>
+                  </ul>
+                </li>
+
+                <!-- Catatan akhir -->
+                <li>
+                  <span class="node-title" data-key="note">Catatan / Contoh Kecil</span>
+                  <button class="toggle-btn" aria-label="toggle"></button>
+                  <ul>
+                    <li><span class="node-title" data-key="note-1">Hasil penelitian sering 'diproduksi' di luar.</span></li>
+                    <li><span class="node-title" data-key="note-2">Perlu upaya sadar untuk membalikkan siklus ini.</span></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <!-- END: Mindmap HTML -->
+        <footer>
+          <div class="small">Mindmap ini adalah ringkasan terstruktur dari tulisan Syed Hussein Alatan "Intellectual Imperialism: Definition, Trains and Problems"</div>
+        </footer>
+      </main>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Initial state
+  let editEnabled = false;
+
+  // Utility: toggle collapse class on li that have child ul
+  function initToggleButtons() {
+    document.querySelectorAll('.mindmap li').forEach(li => {
+      const btn = li.querySelector('.toggle-btn');
+      const childUl = li.querySelector('ul');
+      if (childUl) {
+        // ensure button exists
+        if (!btn) {
+          const b = document.createElement('button');
+          b.className = 'toggle-btn';
+          b.setAttribute('aria-label', 'toggle');
+          li.querySelector('.node-title').insertAdjacentElement('afterend', b);
+        }
+      } else {
+        if (btn) btn.style.display = 'none';
+      }
+    });
+
+    // attach handlers
+    document.querySelectorAll('.toggle-btn').forEach(b => {
+      b.onclick = (e) => {
+        const li = b.closest('li');
+        li.classList.toggle('collapsed');
+      };
+    });
+  }
+
+  // Expand / Collapse all (show/hide nested ULs)
+  document.getElementById('expandAll').addEventListener('click', () => {
+    document.querySelectorAll('.mindmap li.collapsed').forEach(li => li.classList.remove('collapsed'));
+    // also reveal all ULs by removing inline style
+    document.querySelectorAll('.mindmap ul').forEach(u => u.style.display = '');
+  });
+  document.getElementById('collapseAll').addEventListener('click', () => {
+    // collapse all li that have nested ul
+    document.querySelectorAll('.mindmap li').forEach(li => {
+      if (li.querySelector('ul')) li.classList.add('collapsed');
+    });
+    // optionally hide nested UL elements
+    // document.querySelectorAll('.mindmap ul').forEach((u, idx) => { if (idx>0) u.style.display='none'; });
+  });
+
+  // Toggle Edit mode: make all .node-title and .node-desc contenteditable
+  document.getElementById('toggleEdit').addEventListener('click', (e) => {
+    editEnabled = !editEnabled;
+    document.querySelectorAll('.node-title, .node-desc').forEach(el => {
+      // allow editing only on text (not toggle buttons)
+      if (el.classList.contains('node-title') || el.classList.contains('node-desc')) {
+        el.contentEditable = editEnabled ? "true" : "false";
+      }
+    });
+    e.target.textContent = editEnabled ? 'Disable Edit' : 'Enable Edit';
+  });
+
+  // Download current HTML
+  document.getElementById('download').addEventListener('click', () => {
+    // prepare a clone to clean scripts and UI-controls that should not be saved
+    const clone = document.documentElement.cloneNode(true);
+    // remove toggle buttons from clone to simplify final HTML (optional)
+    clone.querySelectorAll('.toggle-btn').forEach(n => n.remove());
+    // ensure edit attributes are removed for final file? keep text but make non-editable
+    clone.querySelectorAll('[contenteditable]').forEach(n => n.removeAttribute('contenteditable'));
+    // remove control buttons area
+    clone.querySelectorAll('button#download, button#toggleEdit, button#expandAll, button#collapseAll, #findBtn, #clearFind').forEach(n => n.remove());
+    // build HTML string
+    const doctype = '<!doctype html>\n';
+    const html = doctype + clone.outerHTML;
+    const blob = new Blob([html], {type: 'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'mindmap_intellectual_imperialism.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+  // Find text
+  document.getElementById('findBtn').addEventListener('click', () => {
+    const q = document.getElementById('findInput').value.trim().toLowerCase();
+    if (!q) return;
+    // remove previous highlights
+    document.querySelectorAll('.highlight').forEach(n => n.classList.remove('highlight'));
+    // search in node-title and node-desc
+    const nodes = Array.from(document.querySelectorAll('.node-title, .node-desc'));
+    let found = 0;
+    nodes.forEach(n => {
+      if (n.innerText.toLowerCase().includes(q)) {
+        n.style.background = 'linear-gradient(90deg, rgba(26,115,232,0.1), rgba(13,71,161,0.05))';
+        n.classList.add('highlight');
+        // expand parent chain
+        let parent = n.closest('li');
+        while (parent) {
+          parent.classList.remove('collapsed');
+          parent = parent.parentElement.closest('li');
+        }
+        found++;
+      } else {
+        n.style.background = '';
+      }
+    });
+    if (found === 0) alert('Tidak ditemukan: ' + q);
+  });
+  document.getElementById('clearFind').addEventListener('click', () => {
+    document.getElementById('findInput').value = '';
+    document.querySelectorAll('.node-title, .node-desc').forEach(n => n.style.background = '');
+  });
+
+  // initialize toggles
+  initToggleButtons();
+
+  // Make top-level children collapsed by default except the very top
+  document.querySelectorAll('.mindmap > ul > li > ul > li').forEach(li => li.classList.add('collapsed'));
+
+  // Allow keyboard shortcut (Ctrl+E) to toggle edit mode
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'e') {
+      e.preventDefault();
+      document.getElementById('toggleEdit').click();
+    }
+  });
+</script>
+</body>
+</html>
