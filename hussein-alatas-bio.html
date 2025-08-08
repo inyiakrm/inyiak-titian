@@ -5,7 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biografi Syed Hussein Alatas</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Gaya Dasar */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        /* Navigasi */
+        nav {
+            margin-bottom: 30px;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        /* Konten Utama */
+        .bio-image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .bio-image {
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .bio-meta {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            margin-top: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Karya Terkemuka */
+        .list-group {
+            padding-left: 20px;
+        }
+        
+        .list-group li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 3px solid #3498db;
+        }
+        
+        em {
+            font-style: italic;
+            color: #555;
+        }
+        
+        /* Kutipan */
+        .toggle-header {
+            cursor: pointer;
+            color: #3498db;
+        }
+        
+        .toggle-content {
+            display: none;
+            margin-top: 15px;
+        }
+        
+        .bio-quote-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .citation {
+            text-align: right;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .footer-logo {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -67,7 +222,7 @@
 
         <section id="kutipan-pilihan">
             <h2 class="toggle-header">Kutipan Pilihan dari Syed Hussein Alatas</h2>
-            <div class="toggle-content content-hidden">
+            <div class="toggle-content">
                 <div class="bio-quote-box">
                     <p><em>"Pikiran terpenjara adalah pikiran yang tidak kritis dan imitatif yang didominasi oleh sumber eksternal, yang pemikirannya dibelokkan dari perspektif independen. Sumber eksternal ini, dalam konteks masyarakat berkembang, adalah dominasi pemikiran dan ilmu sosial dari Barat."</em></p>
                     <p class="citation">— Syed Hussein Alatas, <em>Intellectuals in Developing Societies</em>, 2006</p>
@@ -83,7 +238,12 @@
         </footer>
     </div>
 
-    <script src="js/bio-toggle.js"></script>
+    <script>
+        // Script untuk toggle kutipan
+        document.querySelector('.toggle-header').addEventListener('click', function() {
+            const content = document.querySelector('.toggle-content');
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
 </body>
-
 </html>
