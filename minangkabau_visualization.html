@@ -137,7 +137,92 @@
             margin: 10px 0;
         }
 
-        .lenses-container {
+        /* Answer Cards Styles */
+        .answers-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin: 30px 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .answer-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .answer-card:hover, .answer-card:focus-within {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .answer-1 { 
+            border-left-color: #e74c3c; 
+            background: linear-gradient(135deg, #ffeaea 0%, #ffd6d6 100%);
+        }
+        .answer-2 { 
+            border-left-color: #3498db; 
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        }
+        .answer-3 { 
+            border-left-color: #f39c12; 
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+        }
+
+        .answer-card h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .answer-card p {
+            color: #34495e;
+            font-size: 1em;
+            font-weight: 500;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .answer-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .answer-card li {
+            color: #5a6c7d;
+            font-size: 0.95em;
+            margin: 8px 0;
+            padding: 8px 0 8px 20px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .answer-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+
+        .answer-card strong {
+            color: #2c3e50;
+        }
+
+        .answer-card em {
+            color: #8e44ad;
+            font-style: italic;
+            font-weight: 500;
+        }
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
@@ -271,6 +356,28 @@
                 font-size: 1em;
             }
             
+            .answers-container {
+                gap: 20px;
+                margin: 20px 0;
+            }
+            
+            .answer-card {
+                padding: 20px 15px;
+            }
+            
+            .answer-card h4 {
+                font-size: 1.1em;
+            }
+            
+            .answer-card p {
+                font-size: 0.95em;
+            }
+            
+            .answer-card li {
+                font-size: 0.9em;
+                padding-left: 15px;
+            }
+            
             .lenses-container {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -314,6 +421,22 @@
             
             .flow-step {
                 padding: 15px 10px;
+            }
+            
+            .answer-card {
+                padding: 15px 12px;
+            }
+            
+            .answer-card h4 {
+                font-size: 1em;
+            }
+            
+            .answer-card p {
+                font-size: 0.9em;
+            }
+            
+            .answer-card li {
+                font-size: 0.85em;
             }
             
             .matrix-table {
@@ -386,6 +509,41 @@
                         <p><strong>1.</strong> Untuk apa membaca ulang? <br>
                         <strong>2.</strong> Bagaimana cara membacanya? <br>
                         <strong>3.</strong> Mengapa memilih alat baca tertentu?</p>
+                    </div>
+                    
+                    <div class="flow-arrow"></div>
+                    
+                    <!-- Jawaban 3 Pertanyaan -->
+                    <div class="answers-container">
+                        <div class="answer-card answer-1">
+                            <h4>💡 Jawaban 1: Tujuan Re-Reading</h4>
+                            <p><strong>Untuk mengetahui bagaimana peneliti asing memposisikan, memandang, dan menilai sejarah Minangkabau.</strong></p>
+                            <ul>
+                                <li>Fokus pada aspek <em>sejarah</em> karena paling "babak belur" oleh akademisi</li>
+                                <li>Orang Minangkabau tidak punya sumber sejarah tertulis sendiri</li>
+                                <li>Catatan tertulis dimulai sejak orang Eropa ke Minangkabau (abad 16)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="answer-card answer-2">
+                            <h4>🔧 Jawaban 2: Cara Membaca</h4>
+                            <p><strong>Tidak dibaca begitu saja, tapi menggunakan "kacamata" teoretis yang tajam.</strong></p>
+                            <ul>
+                                <li>Perlu alat yang sesuai tujuan: "Anda mengupas bawang dengan kapak?"</li>
+                                <li>Diperlukan kerangka analisis sistematis</li>
+                                <li>Kombinasi studi kasus + analisis tematis-komparatif</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="answer-card answer-3">
+                            <h4>🎯 Jawaban 3: Mengapa Memilih Alat Baca Tertentu</h4>
+                            <p><strong>Karena dua lensa ini (Fabian & Alatas) paling tajam untuk membongkar politik pengetahuan.</strong></p>
+                            <ul>
+                                <li><strong>Fabian:</strong> Membongkar bagaimana "waktu" digunakan sebagai alat kekuasaan</li>
+                                <li><strong>Alatas:</strong> Mengkritik dominasi intelektual dan "pikiran terperangkap"</li>
+                                <li><strong>Kombinasi:</strong> Melihat <em>bagaimana</em> (Fabian) dan <em>mengapa</em> (Alatas) narasi dibangun</li>
+                            </ul>
+                        </div>
                     </div>
                     
                     <div class="flow-arrow"></div>
