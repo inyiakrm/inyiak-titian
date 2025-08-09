@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=3.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#2c3e50">
+    <title>Re-Reading Minangkabau: Metodologi & Analisis Komparatif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6741 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* Flowchart Styles */
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .flow-step {
+            position: relative;
+            background: white;
+            border-radius: 15px;
+            padding: 25px 35px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid;
+            min-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .flow-step:hover, .flow-step:focus {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .flow-step:active {
+            transform: translateY(-2px);
+        }
+
+        .step-question { border-left-color: #e74c3c; }
+        .step-method { border-left-color: #3498db; }
+        .step-analysis { border-left-color: #f39c12; }
+        .step-conclusion { border-left-color: #27ae60; }
+
+        .flow-step h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .flow-step p {
+            color: #7f8c8d;
+            font-size: 1em;
+        }
+
+        .flow-arrow {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 25px solid #bdc3c7;
+            margin: 10px 0;
+        }
+
+        .lenses-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .lens {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid #dee2e6;
+        }
+
+        .lens h4 {
+            color: #495057;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .lens ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .lens li {
+            background: white;
+            margin: 8px 0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 3px solid #6c757d;
+            font-size: 0.9em;
+        }
+
+        /* Matrix Table Styles */
+        .matrix-container {
+            overflow-x: auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+        }
+
+        .matrix-table thead {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+        }
+
+        .matrix-table th {
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 600;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .matrix-table th:last-child {
+            border-right: none;
+        }
+
+        .matrix-table tbody tr {
+            transition: background-color 0.3s ease;
+            -webkit-tap-highlight-color: rgba(102, 126, 234, 0.1);
+        }
+
+        .matrix-table tbody tr:hover, .matrix-table tbody tr:focus-within {
+            background-color: rgba(102, 126, 234, 0.05);
+        }
+
+        .matrix-table tbody tr:active {
+            background-color: rgba(102, 126, 234, 0.1);
+        }
+
+        .matrix-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .matrix-table td {
+            padding: 20px 15px;
+            border-right: 1px solid #dee2e6;
+            border-bottom: 1px solid #dee2e6;
+            vertical-align: top;
+        }
+
+        .matrix-table td:last-child {
+            border-right: none;
+        }
+
+        .researcher-name {
+            font-weight: 600;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .critique-positive {
+            color: #27ae60;
+            font-weight: 500;
+        }
+
+        .critique-negative {
+            color: #e74c3c;
+            font-weight: 500;
+        }
+
+        .critique-neutral {
+            color: #f39c12;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .header p {
+                font-size: 1em;
+            }
+            
+            .lenses-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .flow-step {
+                min-width: auto;
+                width: 100%;
+                padding: 20px 15px;
+                margin: 0 auto;
+            }
+            
+            .matrix-container {
+                margin: 0 -15px;
+                border-radius: 0;
+            }
+            
+            .matrix-table {
+                font-size: 0.75em;
+            }
+            
+            .matrix-table th, .matrix-table td {
+                padding: 12px 8px;
+                min-width: 120px;
+            }
+            
+            .section h2 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+            
+            .flow-step {
+                padding: 15px 10px;
+            }
+            
+            .matrix-table {
+                font-size: 0.7em;
+            }
+            
+            .matrix-table th, .matrix-table td {
+                padding: 10px 6px;
+                min-width: 100px;
+            }
+            
+            .lens {
+                padding: 15px;
+            }
+            
+            .section {
+                margin-bottom: 40px;
+            }
+        }
+
+        /* iOS Safari specific fixes */
+        @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+            .flow-step, .matrix-container {
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+        }
+
+        /* Android Chrome specific optimizations */
+        @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+            .flow-step, .lens {
+                will-change: transform;
+            }
+        }
+
+        /* Animation */
+        .flow-step {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .flow-step:nth-child(1) { animation-delay: 0.1s; }
+        .flow-step:nth-child(3) { animation-delay: 0.2s; }
+        .flow-step:nth-child(5) { animation-delay: 0.3s; }
+        .flow-step:nth-child(7) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>RE-READING MINANGKABAU</h1>
+            <p>Sebuah Usulan Metodologis dengan Analisis Komparatif</p>
+        </div>
+
+        <div class="content">
+            <!-- Flowchart Metodologis -->
+            <div class="section">
+                <h2>Alur Metodologi Re-Reading</h2>
+                <div class="flowchart">
+                    <div class="flow-step step-question">
+                        <h3>🤔 Tiga Pertanyaan Fundamental</h3>
+                        <p><strong>1.</strong> Untuk apa membaca ulang? <br>
+                        <strong>2.</strong> Bagaimana cara membacanya? <br>
+                        <strong>3.</strong> Mengapa memilih cara tertentu?</p>
+                    </div>
+                    
+                    <div class="flow-arrow"></div>
+                    
+                    <div class="flow-step step-method">
+                        <h3>🔍 Pemilihan "Kacamata" Teoretis</h3>
+                        <p>Dua lensa kritis untuk menganalisis posisi peneliti terhadap sejarah Minangkabau</p>
+                        
+                        <div class="lenses-container">
+                            <div class="lens">
+                                <h4>Johannes Fabian</h4>
+                                <ul>
+                                    <li><strong>Allochronism:</strong> Menempatkan "yang lain" di waktu berbeda</li>
+                                    <li><strong>Denial of Coevalness:</strong> Penyangkalan keserentakan waktu</li>
+                                    <li><strong>Kronopolitik:</strong> Politik penggunaan waktu</li>
+                                </ul>
+                            </div>
+                            <div class="lens">
+                                <h4>Syed Hussein Alatas</h4>
+                                <ul>
+                                    <li><strong>Intellectual Imperialism:</strong> Dominasi dalam dunia pemikiran</li>
+                                    <li><strong>Captive Mind:</strong> Pikiran yang terperangkap</li>
+                                    <li><strong>Creative Assimilation:</strong> Asimilasi kreatif vs imitatif</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flow-arrow"></div>
+                    
+                    <div class="flow-step step-analysis">
+                        <h3>📚 Penerapan pada Studi Kasus & Analisis Tematik</h3>
+                        <p><strong>Studi Kasus:</strong> Dobbin vs Hadler<br>
+                        <strong>Analisis Tematik:</strong> Tambo, Agensi Sejarah, Perempuan</p>
+                    </div>
+                    
+                    <div class="flow-arrow"></div>
+                    
+                    <div class="flow-step step-conclusion">
+                        <h3>💡 Kesimpulan & Usulan Metodologis</h3>
+                        <p>Tambo sebagai "kawan diskusi", bukan objek analisis<br>
+                        Menuju otonomi intelektual dan dekolonisasi pemikiran</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matrix Comparison Table -->
+            <div class="section">
+                <h2>Matrix Perbandingan Pendekatan Peneliti</h2>
+                <div class="matrix-container">
+                    <table class="matrix-table">
+                        <thead>
+                            <tr>
+                                <th>Peneliti & Karya</th>
+                                <th>Posisi terhadap Tambo</th>
+                                <th>Mesin Penggerak Sejarah</th>
+                                <th>Kritik Fabian (Kronopolitik)</th>
+                                <th>Kritik Alatas (Imperialisme Intelektual)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="researcher-name">Christine Dobbin<br><em>"Islamic Revivalism" (1983)</em></td>
+                                <td>Tambo sebagai sumber faktual yang perlu "dibersihkan" dari mitos</td>
+                                <td>Perubahan ekonomi global & kapitalisme</td>
+                                <td class="critique-negative">Strong Allochronism: Minangkabau sebagai "masyarakat petani transisi"</td>
+                                <td class="critique-negative">Klasik: Bahan mentah lokal → teori Barat → produk akademik</td>
+                            </tr>
+                            <tr>
+                                <td class="researcher-name">Jeffrey Hadler<br><em>"Muslims & Matriarchs" (2008)</em></td>
+                                <td>Tambo sebagai "teori sejarah Minangkabau"</td>
+                                <td>Perdebatan internal adat-Islam</td>
+                                <td class="critique-positive">Upaya membangun Coevalness, tapi tetap "menerjemahkan" untuk audiens Barat</td>
+                                <td class="critique-neutral">Dialog intelektual, tapi struktur dominasi akademik masih ada</td>
+                            </tr>
+                            <tr>
+                                <td class="researcher-name">Tsuyoshi Kato<br><em>"Matriliny & Migration"</em></td>
+                                <td>Tambo sebagai mitos/kosmologi, bukan sejarah</td>
+                                <td>Faktor ekonomi & migrasi</td>
+                                <td class="critique-negative">Pemisahan tegas "fakta" vs "mitos" = denial of coevalness</td>
+                                <td class="critique-negative">Tambo sebagai "bahan mentah eksotis" yang perlu dimurnikan</td>
+                            </tr>
+                            <tr>
+                                <td class="researcher-name">Taufik Abdullah<br><em>"Adat and Islam"</em></td>
+                                <td>Tambo sebagai arena negosiasi yang hidup</td>
+                                <td>Dialektika internal adat-Islam</td>
+                                <td class="critique-positive">Narasi sejarah yang sepenuhnya coeval</td>
+                                <td class="critique-positive">Genuine creative assimilation - otonomi intelektual</td>
+                            </tr>
+                            <tr>
+                                <td class="researcher-name">Jane Drakard<br><em>"A Kingdom of Words"</em></td>
+                                <td>Surat Cap sebagai tindakan politik, bukan simbolis</td>
+                                <td>Sirkulasi kata-kata & titah raja</td>
+                                <td class="critique-positive">Menolak pemisahan kata/tindakan, tapi risiko eksotisasi "realitas simbolis"</td>
+                                <td class="critique-positive">Teori kekuasaan dari sumber lokal, bukan impor</td>
+                            </tr>
+                            <tr>
+                                <td class="researcher-name">Elizabeth Graves<br><em>"Minangkabau Response"</em></td>
+                                <td>Sumber sekunder untuk memahami "respons"</td>
+                                <td>Intervensi & kebijakan kolonial</td>
+                                <td class="critique-negative">"Waktu kolonial" sebagai satu-satunya waktu signifikan</td>
+                                <td class="critique-negative">Sejarah ditulis dari sudut pandang "pabrik kolonial"</td>
+                            </tr>
+                            <tr>
+                                <td class="researcher-name">Joel Kahn<br><em>"Social Formations"</em></td>
+                                <td>Data pendukung untuk analisis ekonomi</td>
+                                <td>Integrasi ke sistem kapitalis dunia</td>
+                                <td class="critique-negative">Minangkabau dalam kronologi universal kapitalisme</td>
+                                <td class="critique-negative">Grand Theory Barat diterapkan pada realitas lokal</td>
+                            </tr>
+                            <tr>
+                                <td class="researcher-name">Peggy Sanday<br><em>"Women at the Center"</em></td>
+                                <td>Tambo sebagai sumber matriarki "asli"</td>
+                                <td>Esensi kultural matriarki yang abadi</td>
+                                <td class="critique-negative">Risiko: "Dunia perempuan" di waktu mitis vs "dunia laki-laki" di waktu sejarah</td>
+                                <td class="critique-neutral">Konsep "matriarki" dari antropologi Barat, tapi didefinisikan ulang</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Kesimpulan -->
+            <div class="section">
+                <h2>Kesimpulan & Rekomendasi</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="flow-step step-conclusion">
+                        <h3>🎯 Temuan Utama</h3>
+                        <p><strong>Politik Waktu:</strong> Cara peneliti "mengatur" waktu mencerminkan struktur kuasa<br><br>
+                        <strong>Bias Posisi:</strong> Peneliti asing vs lokal memiliki kecenderungan berbeda dalam melihat agensi</p>
+                    </div>
+                    <div class="flow-step step-conclusion">
+                        <h3>🚀 Usulan Metodologis</h3>
+                        <p><strong>Tambo sebagai "Kawan Diskusi"</strong> pertama, bukan objek<br><br>
+                        <strong>Dialog Intelektual</strong> yang mengakui keserentakan waktu (coevalness)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
